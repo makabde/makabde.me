@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/makabde/makabde.me#readme",
   "devDependencies": {
+    "browser-sync": "^2.13.0",
     "gulp": "^3.9.1"
   }
 }
