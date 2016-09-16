@@ -1,6 +1,5 @@
 'use strict';
 
-
 const gulp         = require('gulp');
 const cssnano      = require('gulp-cssnano');
 const postcss      = require('gulp-postcss');
