@@ -1,6 +1,7 @@
 # Folders
+build
 node_modules
-_site
+.tmp
 
 # Files
 .sass-cache
