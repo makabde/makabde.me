@@ -84,6 +84,11 @@ module.exports = {
       bundleExec: true
     }
   },
+  eslint: {
+    options: {
+      configFile: '.eslintrc.js'
+    }
+  },
   watch: {
     jekyll: [
       '_config.yml',
