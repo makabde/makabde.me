@@ -4,6 +4,7 @@ const paths = {
   /* Sources */
   src: 'src',
   srcImages: 'src/_images',
+  srcVectors: 'src/_vectors',
   srcJavascripts: 'src/_js',
   srcStylesheets: 'src/_scss',
   /* Build */
@@ -116,6 +117,9 @@ module.exports = {
     src: `${paths.srcImages}/**/*`,
     dest: paths.buildDevelopmentImages
   },
+  vectors: {
+
+  },
   base64: {
     src: `${paths.buildDevelopmentStylesheets}/**/*.css`,
     dest: paths.buildDevelopmentStylesheets,
@@ -124,6 +128,13 @@ module.exports = {
       extensions: ['png'],
       maxImageSize:  20 * 1024, // bytes
       debug: false
+    }
+  },
+  sprites: {
+    src: `${paths.srcImages}/icons/**/*.png`,
+    dest: {
+      css: paths.srcStylesheets,
+      image: `${paths.srcImages}/sprites`
     }
   },
   watch: {
@@ -140,6 +151,7 @@ module.exports = {
       `${paths.src}/*`
     ],
     images: `${paths.srcImages}/**/*`,
+    vectors: `${paths.srcVectors}/**/*.svg`,
     javascripts: `${paths.srcJavascripts}/**/*.{js}`,
     stylesheets: `${paths.srcStylesheets}/**/*.{scss,css}`
   }
