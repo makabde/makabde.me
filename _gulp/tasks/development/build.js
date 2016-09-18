@@ -11,7 +11,8 @@ gulp.task('build', (cb) => {
   runSequence('delete',
     [
       'jekyll',
-      'scss'
+      'scss',
+      'js'
     ],
   cb);
 });

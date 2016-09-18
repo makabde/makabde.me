@@ -79,6 +79,24 @@ module.exports = {
     }
   },
   javascripts: {
+    // Enable source maps
+    debug: true,
+    // Additional file extensions to make optional
+    extensions: ['.hbs'],
+    // A separate bundle will be generated for each bundle config in the list
+    // below
+    bundleConfigs: [
+      {
+        entries: `./${paths.srcJavascripts}/makabde.js`,
+        dest: paths.buildDevelopmentJavascripts,
+        outputName: 'makabde.js'
+      },
+      {
+        entries: `./${paths.srcJavascripts}/makabde.head.js`,
+        dest: paths.buildDevelopmentJavascripts,
+        outputName: 'makabde.head.js'
+      }
+    ]
   },
   lint: {
     stylesheets: {

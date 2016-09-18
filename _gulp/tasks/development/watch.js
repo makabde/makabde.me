@@ -10,4 +10,5 @@ const config = require('../../config').watch;
 gulp.task('watch', ['browser-sync'], () => {
   gulp.watch(config.jekyll, ['jekyll-rebuild']);
   gulp.watch(config.stylesheets, ['scss']);
+  gulp.watch(config.javascripts, ['js']);
 });
