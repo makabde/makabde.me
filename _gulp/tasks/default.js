@@ -1,5 +1,5 @@
 'use strict';
 
-const gulp = require('gulp');
+import gulp from 'gulp';
 
 gulp.task('default', ['watch']);

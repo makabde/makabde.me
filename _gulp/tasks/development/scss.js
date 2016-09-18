@@ -1,18 +1,18 @@
 'use strict';
 
-const gulp         = require('gulp');
-const cssnano      = require('gulp-cssnano');
-const postcss      = require('gulp-postcss');
-const sass         = require('gulp-sass');
-const sourcemaps   = require('gulp-sourcemaps');
+import gulp         from 'gulp';
+import cssnano      from 'gulp-cssnano';
+import postcss      from 'gulp-postcss';
+import sass         from 'gulp-sass';
+import sourcemaps   from 'gulp-sourcemaps';
 
-const browserSync  = require('browser-sync');
+import browserSync  from 'browser-sync';
 
-const autoprefixer = require('autoprefixer');
-const mqpacker     = require('css-mqpacker');
-const precss       = require('precss');
+import autoprefixer from 'autoprefixer';
+import mqpacker     from 'css-mqpacker';
+import precss       from 'precss';
 
-const config       = require('../../config');
+import config       from '../../config';
 
 /**
  * Build the stylesheets

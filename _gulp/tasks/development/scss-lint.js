@@ -1,9 +1,9 @@
 'use strict';
 
-const gulp     = require('gulp');
-const scssLint = require('gulp-scss-lint');
+import gulp     from 'gulp';
+import scssLint from 'gulp-scss-lint';
 
-const config   = require('../../config');
+import config   from '../../config';
 
 /**
  * Lint the scss files before compilation

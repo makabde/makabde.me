@@ -1,6 +1,8 @@
-const gnotify = require('gulp-notify');
+'use-strict';
 
-module.exports = () => {
+import gnotify from 'gulp-notify';
+
+const handleError = () => {
   let args = Array.prototype.slice.call(arguments);
 
   // Send error to notification center with gulp-notify
@@ -14,3 +16,5 @@ module.exports = () => {
 
   this.emit('end');
 };
+
+export default handleError;

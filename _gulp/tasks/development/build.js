@@ -1,13 +1,13 @@
 'use strict';
 
-const gulp        = require('gulp');
-const runSequence = require('run-sequence');
+import gulp        from 'gulp';
+import runSequence from 'run-sequence';
 
 /**
  * Run all tasks needed for a build in a defined order
  */
 
-gulp.task('build', (cb) => {
+gulp.task('build', (callback) => {
   runSequence('delete',
     [
       'jekyll',
@@ -16,6 +16,6 @@ gulp.task('build', (cb) => {
       'images'
     ],
     'base64',
-    cb
+    callback
   );
 });

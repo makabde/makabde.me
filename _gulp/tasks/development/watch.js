@@ -1,16 +1,19 @@
 'use strict';
 
-const gulp   = require('gulp');
-const config = require('../../config').watch;
+import gulp   from 'gulp';
+
+import config from '../../config';
 
 /**
  * Start browserSync task and then watch files for changes
  */
 
+const watchConfig = config.watch;
+
 gulp.task('watch', ['browser-sync'], () => {
-  gulp.watch(config.jekyll,       ['jekyll-rebuild']);
-  gulp.watch(config.stylesheets,  ['scss']);
-  gulp.watch(config.javascripts,  ['js']);
-  gulp.watch(config.images,       ['images']);
+  gulp.watch(watchConfig.jekyll, ['jekyll-rebuild']);
+  gulp.watch(watchConfig.stylesheets,  ['scss']);
+  gulp.watch(watchConfig.javascripts,  ['js']);
+  gulp.watch(watchConfig.images,       ['images']);
   // gulp.watch(config.vectors, ['vectors']);
 });

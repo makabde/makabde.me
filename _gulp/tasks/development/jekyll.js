@@ -1,14 +1,17 @@
 'use strict';
 
-const gulp        = require('gulp');
-const spawn       = require('child_process').spawn;
-const browserSync = require('browser-sync');
-const config      = require('../../config').jekyll.development;
+import gulp         from 'gulp';
+import browserSync  from 'browser-sync';
+import childProcess from 'child_process';
+
+import config       from '../../config';
 
 /**
  * Build the Jekyll site
  */
 
+const spawn = childProcess.spawn;
+const jekyllConfig = config.jekyll.development;
 
 gulp.task('jekyll', (done) => {
   browserSync.notify('Compiling Jekyll');
@@ -20,9 +23,9 @@ gulp.task('jekyll', (done) => {
       'jekyll',
       'build',
       '-q',
-      '--source=' + config.src,
-      '--destination=' + config.dest,
-      '--config=' + config.config
+      '--source=' + jekyllConfig.src,
+      '--destination=' + jekyllConfig.dest,
+      '--config=' + jekyllConfig.config
     ],
     { stdio: 'inherit' }
   ).on('close', done);

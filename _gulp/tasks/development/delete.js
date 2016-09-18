@@ -1,12 +1,16 @@
 'use strict';
 
-const gulp   = require('gulp');
-const del    = require('del');
-const config = require('../../config').delete;
+import gulp   from 'gulp';
+import del    from 'del';
+
+import config from '../../config';
 
 /**
  * Delete folders and files
  */
+
+const delConfig = config.delete;
+
 gulp.task('delete', () => {
-  del(config.src);
+  del(delConfig.src);
 });

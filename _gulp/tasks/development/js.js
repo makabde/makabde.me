@@ -1,27 +1,29 @@
 'use-strict';
 
-const gulp         = require('gulp');
+import gulp         from 'gulp';
 
-const browserify   = require('browserify');
-const source       = require('vinyl-source-stream');
-const watchify     = require('watchify');
+import browserify   from 'browserify';
+import source       from 'vinyl-source-stream';
+import watchify     from 'watchify';
 
-const bundleLogger = require('../../util/bundleLogger');
-const handleErrors = require('../../util/handleErrors');
+import bundleLogger from '../../util/bundle-logger';
+import handleErrors from '../../util/handle-errors';
 
-const browserSync  = require('browser-sync');
-const config       = require('../../config').javascripts;
+import browserSync  from 'browser-sync';
+import config       from '../../config';
 
 
 /**
  * Run Javascripts through Browserify
  */
 
+const jsConfig = config.javascripts;
+
 gulp.task('js', ['eslint'], (cb) => {
 
   browserSync.notify('Compiling Javascripts');
 
-  let bundleQueue = config.bundleConfigs.length;
+  let bundleQueue = jsConfig.bundleConfigs.length;
 
   let browserifyThis = (bundleConfig) => {
     let bundler = browserify({
@@ -34,10 +36,10 @@ gulp.task('js', ['eslint'], (cb) => {
       entries: bundleConfig.entries,
 
       // Add file extensions to make optional in the 'require' statements
-      extensions: config.extensions,
+      extensions: jsConfig.extensions,
 
       // Enable source maps
-      debug: config.debug
+      debug: jsConfig.debug
     });
 
     let bundle = () => {
@@ -82,5 +84,5 @@ gulp.task('js', ['eslint'], (cb) => {
   };
 
   // Start bunding with browserify for each bundleConfig specified.
-  config.bundleConfigs.forEach(browserifyThis);
+  jsConfig.bundleConfigs.forEach(browserifyThis);
 });

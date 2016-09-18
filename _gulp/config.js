@@ -20,7 +20,7 @@ const paths = {
   buildProductionAssets: 'build/production/assets'
 };
 
-module.exports = {
+export default {
   browserSync: {
     development: {
       server: {
@@ -46,7 +46,7 @@ module.exports = {
     }
   },
   delete: {
-    src: [ paths.buildDevelopmentAssets ]
+    src: [ `${paths.buildDevelopmentAssets}/**` ]
   },
   jekyll: {
     development: {

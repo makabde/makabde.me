@@ -1,17 +1,19 @@
 'use-strict';
 
-const gulp    = require('gulp');
-const changed = require('gulp-changed');
+import gulp    from 'gulp';
+import changed from 'gulp-changed';
 
-const config  = require('../../config').images;
+import config  from '../../config';
 
 /**
  * Copy images to build folder if not changed
  */
 
+const imagesConfig = config.images;
+
 gulp.task('images', () => {
-  gulp.src(config.src)
+  gulp.src(imagesConfig.src)
     // Ignore unchanged files
-    .pipe(changed(config.dest))
-    .pipe(gulp.dest(config.dest));
+    .pipe(changed(imagesConfig.dest))
+    .pipe(gulp.dest(imagesConfig.dest));
 });
