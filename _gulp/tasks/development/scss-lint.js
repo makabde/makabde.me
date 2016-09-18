@@ -11,5 +11,5 @@ const config   = require('../../config');
 
 gulp.task('scss-lint', () => {
   gulp.src(config.stylesheets.src)
-    .pipe(scssLint(config.scssLint.options));
+    .pipe(scssLint(config.lint.stylesheets.options));
 });

@@ -3,7 +3,7 @@
 const gulp   = require('gulp');
 const eslint = require('gulp-eslint');
 
-const config = require('../../config').javascripts;
+const config = require('../../config').lint.javascripts;
 
 /**
  * Lint javascripts with ESLint

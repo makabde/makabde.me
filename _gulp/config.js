@@ -78,15 +78,20 @@ module.exports = {
       mqpacker: {}
     }
   },
-  scssLint: {
-    options: {
-      config: '.scss-lint.yml',
-      bundleExec: true
-    }
+  javascripts: {
   },
-  eslint: {
-    options: {
-      configFile: '.eslintrc.js'
+  lint: {
+    stylesheets: {
+      options: {
+        config: '.scss-lint.yml',
+        bundleExec: true
+      }
+    },
+    javascripts: {
+      src: `${paths.srcJavascripts}/**/*.js`,
+      options: {
+        configFile: '.eslintrc.js'
+      }
     }
   },
   watch: {
