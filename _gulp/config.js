@@ -112,6 +112,10 @@ module.exports = {
       }
     }
   },
+  images: {
+    src: `${paths.srcImages}/**/*`,
+    dest: paths.buildDevelopmentImages
+  },
   watch: {
     jekyll: [
       '_config.yml',

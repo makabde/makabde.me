@@ -12,7 +12,8 @@ gulp.task('build', (cb) => {
     [
       'jekyll',
       'scss',
-      'js'
+      'js',
+      'images'
     ],
   cb);
 });
