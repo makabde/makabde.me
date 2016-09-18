@@ -116,6 +116,16 @@ module.exports = {
     src: `${paths.srcImages}/**/*`,
     dest: paths.buildDevelopmentImages
   },
+  base64: {
+    src: `${paths.buildDevelopmentStylesheets}/**/*.css`,
+    dest: paths.buildDevelopmentStylesheets,
+    options: {
+      baseDir: paths.build,
+      extensions: ['png'],
+      maxImageSize:  20 * 1024, // bytes
+      debug: false
+    }
+  },
   watch: {
     jekyll: [
       '_config.yml',

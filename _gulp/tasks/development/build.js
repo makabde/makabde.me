@@ -15,5 +15,7 @@ gulp.task('build', (cb) => {
       'js',
       'images'
     ],
-  cb);
+    'base64',
+    cb
+  );
 });
