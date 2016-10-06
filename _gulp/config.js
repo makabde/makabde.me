@@ -64,7 +64,6 @@ export default {
     src: `${paths.srcStylesheets}/**/*.scss`,
     dest: paths.buildDevelopmentStylesheets,
     options: {
-      precss: {},
       autoprefixer: {
         browsers: [
           'last 2 versions',

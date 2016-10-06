@@ -10,7 +10,6 @@ import browserSync  from 'browser-sync';
 
 import autoprefixer from 'autoprefixer';
 import mqpacker     from 'css-mqpacker';
-import precss       from 'precss';
 
 import config       from '../../config';
 
@@ -19,7 +18,6 @@ import config       from '../../config';
  */
 
 const processors = [
-  precss(config.stylesheets.options.precss),
   autoprefixer(config.stylesheets.options.autoprefixer),
   mqpacker(config.stylesheets.options.mqpacker)
 ];
