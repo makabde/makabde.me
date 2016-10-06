@@ -5,7 +5,10 @@
 //---------------------------
 
 $font: (
-  family: (),
+  family: (
+    sans: (Lato, sans-serif),
+    serif: (Merriweather, serif)
+  ),
   weight: (),
   size: (),
   leading: ()
