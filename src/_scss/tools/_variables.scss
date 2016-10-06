@@ -24,7 +24,7 @@
     $nested-map: map-get($map, $nested-map-name);
     // get the var value from the nested map
     $var-fallback: map-get($nested-map, $var);
-    $var-output: var(--#{nested-name}-#{$nested-map-name}-#{$var});
+    $var-output: var(--#{$nested-name}-#{$nested-map-name}-#{$var});
   } @else {
     // get the map from the map name
     $map: map-get($maps, $map-name);
