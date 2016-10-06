@@ -1,0 +1,43 @@
+// the variable mixin takes a property and variable name
+@mixin var($prop, $var, $fallback: true) {
+  // get the property's map name(s)
+  $map-name: map-get($props, $prop);
+  $map: null;
+
+  $nested-name: null;
+  $nested-map-name: null;
+
+  $var-fallback: null;
+  $var-output: null;
+
+  // if a list, we need to go deeper
+  @if type-of($map-name) == list {
+    $nested-name: nth($map-name, 1);
+    $nested-map-name: nth($map-name, 2);
+  }
+
+  // if it is a nested map
+  @if $nested-name {
+    // get the map from the nested map-name
+    $map: map-get($maps, $nested-name);
+    // get the nested map
+    $nested-map: map-get($map, $nested-map-name);
+    // get the var value from the nested map
+    $var-fallback: map-get($nested-map, $var);
+    $var-output: var(--#{nested-name}-#{$nested-map-name}-#{$var});
+  } @else {
+    // get the map from the map name
+    $map: map-get($maps, $map-name);
+    // fallback, grab the variable's value from the map
+    $var-fallback: map-get($map, $var);
+    $var-output: var(--#{$map-name}-#{$var});
+  }
+
+  // if show standard is not overriden to null
+  @if $fallback {
+    #{$prop}: $var-fallback;
+  }
+
+  // css4 variable output
+  #{$prop}: $var-output;
+}

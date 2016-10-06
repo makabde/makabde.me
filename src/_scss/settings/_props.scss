@@ -1,0 +1,16 @@
+//---------------------------
+//
+// Props
+//
+//---------------------------
+
+/// Which property uses which map
+
+$props: (
+  background-color: color,
+  color:            color,
+  font-family:      (font, family),
+  font-size:        (font, size),
+  font-weight:      (font, weight),
+  line-height:      (font, leading),
+);

@@ -1,0 +1,3 @@
+body {
+  @include var(background-color, background);
+}
