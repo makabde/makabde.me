@@ -1,7 +1,12 @@
+// scss-lint:disable ImportPath
+//
+
 //---------------------------
 //
 // Tools
 //
 //---------------------------
 
-@import 'variables';
+@import 'functions/_all';
+
+@import 'mixins/_all';

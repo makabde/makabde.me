@@ -1,0 +1,33 @@
+// scss-lint:disable QualifyingElement
+//
+
+/// Style reset for base elements, but allows them to be scooped
+/// @access public
+/// @group reset
+/// @type bool
+
+*,
+::after,
+::before {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+
+  appearance: none;
+}
+
+input[type=checkbox] {
+  appearance: checkbox;
+}
+
+input[type=radio] {
+  appearance: radio;
+}

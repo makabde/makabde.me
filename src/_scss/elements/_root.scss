@@ -1,7 +1,14 @@
+// Base/root styles
+
+:root,
+html {
+  box-sizing: border-box;
+}
+
 // setup the css4 variable definitions
 :root {
   // for each variable map
-  @each $var-map-name, $var-map in $maps {
+  @each $var-map-name, $var-map in $MA-maps {
     // for each variable in the variable map
     @each $var, $val in $var-map {
       // if it is a map, go another level deep
@@ -9,11 +16,13 @@
         // each in the map
         @each $var-n, $val-n in $val {
           // do the definition
-          #{--$var-map-name}-#{$var}-#{$var-n}: $val-n;
+          $prop: --#{$var-map-name}-#{$var}-#{$var-n};
+          #{$prop}: $val-n;
         }
       } @else {
-        // do the definition
-        #{--$var-map-name}-#{$var}: $val;
+        // do the definition, but first define the prop name
+        $prop: --#{$var-map-name}-#{$var};
+        #{$prop}: $val;
       }
     }
   }

@@ -1,5 +1,8 @@
 // the variable mixin takes a property and variable name
 @mixin var($prop, $var, $fallback: true) {
+  $maps: $MA-maps;
+  $props: $MA-props;
+
   // get the property's map name(s)
   $map-name: map-get($props, $prop);
   $map: null;

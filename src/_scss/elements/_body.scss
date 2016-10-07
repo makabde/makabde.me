@@ -1,3 +1,6 @@
 body {
-  @include var(background-color, background);
+  @include var(color, text);
+  @include var(font-size, body);
+  @include var(font-family, serif);
+  @include var(line-height, body);
 }

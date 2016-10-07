@@ -6,7 +6,8 @@
 
 /// Associate variable map name to an actual variable map
 
-$maps: (
-  color: $color,
-  font: $font
+$MA-maps: (
+  color: $MA-color,
+  font: $MA-typography,
+  spacing: $MA-spacing,
 );

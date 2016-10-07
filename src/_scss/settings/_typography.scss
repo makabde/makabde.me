@@ -1,15 +1,20 @@
 //---------------------------
 //
-// Fonts
+// Typography
 //
 //---------------------------
 
-$font: (
+$MA-typography: (
   family: (
     sans: (Lato, sans-serif),
     serif: (Merriweather, serif)
   ),
   weight: (),
-  size: (),
-  leading: ()
+  size: (
+    body: 18px
+  ),
+  leading: (
+    body: $MA-base-leading-body,
+    head: $MA-base-leading-head
+  )
 );
