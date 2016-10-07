@@ -1,7 +1,7 @@
 // scss-lint:disable QualifyingElement
 //
 
-/// Style reset for base elements, but allows them to be scooped
+/// Style reset for base elements
 /// @access public
 /// @group reset
 /// @type bool
@@ -30,4 +30,18 @@ input[type=checkbox] {
 
 input[type=radio] {
   appearance: radio;
+}
+
+ul,
+ol {
+  @include var(margin-left, double);
+}
+
+p,
+table {
+  @include var(margin-bottom, base);
+}
+
+table {
+  border-collapse: collapse;
 }
