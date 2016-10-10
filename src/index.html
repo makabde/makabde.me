@@ -1,23 +1,14 @@
 ---
-layout: default
+layout: wip
 ---
+<header role="banner" class="c-wip__header">
 
-<div class="home">
+</header>
+<main class="c-wip__content">
+  <p><strong>Hello!</strong></p>
+  <p>I am currently doing something under the hood and had to take the site offline. Be assured that this pains me more than it does you.</p>
+  <p>This site will be up again as soon as humanly possible.<p>
+</main>
+<footer role="contentinfo" class="c-wip__footer">
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+</footer>

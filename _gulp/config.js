@@ -92,9 +92,9 @@ export default {
         outputName: 'makabde.js'
       },
       {
-        entries: `./${paths.srcJavascripts}/makabde.head.js`,
+        entries: `./${paths.srcJavascripts}/makabde.wip.js`,
         dest: paths.buildDevelopmentJavascripts,
-        outputName: 'makabde.head.js'
+        outputName: 'makabde.wip.js'
       }
     ]
   },
