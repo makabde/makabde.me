@@ -63,6 +63,10 @@ export default {
   stylesheets: {
     src: `${paths.srcStylesheets}/**/*.scss`,
     dest: paths.buildDevelopmentStylesheets,
+    includePaths: [
+      'bower_components/susy/sass',
+      'bower_components/breakpont-sass/stylesheets'
+    ],
     options: {
       autoprefixer: {
         browsers: [
