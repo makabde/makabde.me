@@ -1,6 +1,7 @@
 # Folders
-build
+bower_components
 node_modules
+build
 .tmp
 
 # Files
