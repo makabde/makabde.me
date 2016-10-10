@@ -65,7 +65,7 @@ export default {
     dest: paths.buildDevelopmentStylesheets,
     includePaths: [
       'bower_components/susy/sass',
-      'bower_components/breakpont-sass/stylesheets'
+      'bower_components/breakpoint-sass/stylesheets'
     ],
     options: {
       autoprefixer: {
