@@ -36,6 +36,8 @@ GEM
     scss_lint (0.50.2)
       rake (>= 0.9, < 12)
       sass (~> 3.4.20)
+    susy (2.2.12)
+      sass (>= 3.3.0, < 3.5)
 
 PLATFORMS
   ruby
@@ -45,6 +47,7 @@ DEPENDENCIES
   kramdown
   rouge
   scss_lint
+  susy
 
 BUNDLED WITH
-   1.12.5
+   1.13.2

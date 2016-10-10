@@ -7,4 +7,6 @@ gem 'jekyll'
 gem 'kramdown'
 gem 'rouge'
 
+gem 'susy'
+
 gem 'scss_lint'
