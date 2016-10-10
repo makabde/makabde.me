@@ -1,0 +1,22 @@
+{
+  "name": "makabde.me",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Mak Abdennabi"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/makabde/makabde.me",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "susy": "^2.2.12",
+    "breakpoint-sass": "^2.7.0"
+  }
+}
