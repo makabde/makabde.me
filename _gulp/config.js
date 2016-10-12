@@ -64,8 +64,8 @@ export default {
     src: `${paths.srcStylesheets}/**/*.scss`,
     dest: paths.buildDevelopmentStylesheets,
     includePaths: [
-      'bower_components/susy/sass',
-      'bower_components/breakpoint-sass/stylesheets'
+      require('bourbon').includePaths,
+      require('bourbon-neat').includePaths
     ],
     options: {
       autoprefixer: {
