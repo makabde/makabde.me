@@ -7,3 +7,13 @@
 @function double($n) {
   @return round($n * 2);
 }
+
+/// Divide any number by 2
+/// @access public
+/// @group math
+/// require n
+/// @param n - number to perform operation on
+/// @return {number}
+@function half($n) {
+  @return round($n / 2);
+}

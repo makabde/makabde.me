@@ -1,0 +1,47 @@
+//---------------------------
+//
+// Grid
+//
+//---------------------------
+
+@import 'neat-helpers';
+
+/// Screens
+
+/// Small screens - Phones
+
+$MA-small-screen-cols: 4;
+$MA-small-screen-width: 30rem; // 480px
+
+/// Medium screens - Tablets (7")
+
+$MA-medium-screen-cols: 8;
+$MA-medium-screen-width: 48rem; // 768px
+
+/// Large screens - Laptops (> 15")
+
+$MA-large-screen-cols: 12;
+$MA-large-screen-width: 62rem; // 992px
+
+/// Wide screens - Thunderbold displays (and others)
+
+$MA-wide-screen-width: 76rem; // 1216px
+
+// Neat settings override
+
+$column: 4.2358rem;
+$gutter: 1.618rem;
+$max-width: 76rem; // 1216px
+$grid-columns: 12;
+
+// Neat breakpoints
+
+$MA-sm: new-breakpoint(max-width $MA-small-screen-width $MA-small-screen-cols);
+$MA-md: new-breakpoint(min-width $MA-small-screen-width $MA-medium-screen-cols);
+$MA-lg: new-breakpoint(min-width $MA-large-screen-width $MA-large-screen-cols);
+$MA-wd: new-breakpoint(min-width $MA-wide-screen-width $MA-large-screen-cols);
+
+
+// Debug
+
+$visual-grid: true;

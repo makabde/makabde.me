@@ -6,6 +6,8 @@
 @import 'settings/_all';
 
 // Tools
+@import 'bourbon';
+@import 'neat';
 @import 'tools/_all';
 
 // Generic
@@ -18,6 +20,10 @@
 
 // Objects
 
+@import 'objects/_all';
+
 // Components
+
+@import 'components/_all';
 
 // Trumps

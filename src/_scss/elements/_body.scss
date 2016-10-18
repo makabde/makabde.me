@@ -1,3 +1,9 @@
+//---------------------------
+//
+// Body - Elements
+//
+//---------------------------
+
 body {
   @include var(color, text);
   @include var(font-size, body);

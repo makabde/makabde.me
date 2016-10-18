@@ -1,0 +1,81 @@
+//---------------------------
+//
+// HTTP error
+//
+//---------------------------
+
+#{$MA-c-http-error} {
+  @include outer-container();
+
+  #{$MA-c-http-error}__head,
+  #{$MA-c-http-error}__main,
+  #{$MA-c-http-error}__foot {
+    @include clearfix;
+
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  #{$MA-c-http-error}__head {
+    @include var(padding-top, base);
+    @include var(padding-bottom, base);
+
+    @include media($MA-md) {
+      @include var(padding-top, double);
+      @include var(padding-bottom, double);
+    }
+  }
+}
+
+
+#{$MA-c-http-error}-branding {
+  @include span-columns(2 of 4);
+
+  @include media($MA-md) {
+    @include span-columns(4);
+    @include shift(2);
+  }
+
+  @include media($MA-lg) {
+    @include span-columns(4);
+    @include shift(4);
+  }
+}
+
+#{$MA-c-http-error}-content,
+#{$MA-c-http-error}-mentions, {
+  @include var(padding-right, base);
+  @include var(padding-left, base);
+
+  @include media($MA-md) {
+    @include span-columns(6);
+    @include shift(1);
+    @include omega();
+
+    @include var(padding-right, reset);
+    @include var(padding-left, reset);
+
+    text-align: center;
+  }
+
+  @include media($MA-lg) {
+    @include span-columns(8);
+    @include shift(2);
+  }
+
+  > p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+#{$MA-c-http-error}-content {
+  @include var(padding-bottom, base);
+}
+
+#{$MA-c-http-error}-mentions > p {
+  @include var(font-family, sans);
+  @include var(font-size, small);
+  @include var(line-height, small);
+  @include var(font-weight, bold);
+}

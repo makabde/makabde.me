@@ -8,7 +8,8 @@ $MA-spacing: (
   base: $MA-base-margin,
   half: ($MA-base-margin / 2),
   third: ($MA-base-margin / 3),
-  fourth: ($MA-base-margin / 4),
+  quarter: ($MA-base-margin / 4),
   eightth: ($MA-base-margin / 8),
   double: ($MA-base-margin * 2),
+  reset: 0,
 );

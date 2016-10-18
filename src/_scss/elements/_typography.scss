@@ -1,0 +1,35 @@
+//---------------------------
+//
+// Typography - Elements
+//
+//---------------------------
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include var(margin-bottom, half);
+  @include var(line-height, head);
+  @include var(font-family, sans);
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    @include var(font-size, h#{$i});
+  }
+}
+
+// Links
+
+a {
+  @include var(color, link);
+
+  &:focus,
+  &:hover {
+    @include var(color, link-hover);
+  }
+}

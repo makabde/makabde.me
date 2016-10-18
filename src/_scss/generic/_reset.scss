@@ -39,7 +39,7 @@ ol {
 
 p,
 table {
-  @include var(margin-bottom, base);
+  @include var(margin-bottom, half);
 }
 
 table {
