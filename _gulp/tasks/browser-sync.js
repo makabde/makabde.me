@@ -7,8 +7,13 @@ import config      from '../config';
  * Run the build task and start a server with BrowserSync
  */
 
-const browserSyncConfig = config.browserSync.development;
+const bsDevConf = config.browserSync.development;
+const bsProdConf = config.browserSync.production;
 
 gulp.task('browser-sync:dev', ['build:dev'], () => {
-  browserSync(browserSyncConfig);
+  browserSync(bsDevConf);
+});
+
+gulp.task('browserSync:prod', ['build:prod'], () => {
+  browserSync(bsProdConf);
 });
