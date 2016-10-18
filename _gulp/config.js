@@ -30,6 +30,7 @@ export default {
           paths.src
         ]
       },
+      open: false,
       port: 9999,
       files: [
         `${paths.buildDevelopmentImages}/**`,
