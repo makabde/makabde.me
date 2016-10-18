@@ -18,15 +18,13 @@ const processors = [
 ];
 
 gulp.task('scss', ['scss-lint'], () => {
-
   browserSync.notify('Compiling stylesheets');
 
   gulp.src(config.stylesheets.src)
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      includePaths: config.stylesheets.includePaths
-    }))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ includePaths: config.stylesheets.includePaths }).on(
+      'error', sass.logError
+    ))
     .pipe(postcss(processors))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.stylesheets.dest));
