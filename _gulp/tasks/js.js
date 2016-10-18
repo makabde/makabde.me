@@ -4,11 +4,11 @@ import browserify   from 'browserify';
 import source       from 'vinyl-source-stream';
 import watchify     from 'watchify';
 
-import bundleLogger from '../../util/bundle-logger';
-import handleErrors from '../../util/handle-errors';
+import bundleLogger from '../util/bundle-logger';
+import handleErrors from '../util/handle-errors';
 
 import browserSync  from 'browser-sync';
-import config       from '../../config';
+import config       from '../config';
 
 
 /**
@@ -17,7 +17,7 @@ import config       from '../../config';
 
 const jsConfig = config.javascripts;
 
-gulp.task('js', ['eslint'], (cb) => {
+gulp.task('js:dev', ['eslint:dev'], (cb) => {
 
   browserSync.notify('Compiling Javascripts');
 

@@ -7,7 +7,7 @@ import browserSync  from 'browser-sync';
 
 import autoprefixer from 'autoprefixer';
 
-import config       from '../../config';
+import config       from '../config';
 
 /**
  * Build the stylesheets
@@ -17,7 +17,7 @@ const processors = [
   autoprefixer(config.stylesheets.options.autoprefixer),
 ];
 
-gulp.task('scss', ['scss-lint'], () => {
+gulp.task('scss:dev', ['scss-lint:dev'], () => {
   browserSync.notify('Compiling stylesheets');
 
   gulp.src(config.stylesheets.src)

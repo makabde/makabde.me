@@ -2,7 +2,7 @@ import gulp         from 'gulp';
 import browserSync  from 'browser-sync';
 import childProcess from 'child_process';
 
-import config       from '../../config';
+import config       from '../config';
 
 /**
  * Build the Jekyll site
@@ -11,7 +11,7 @@ import config       from '../../config';
 const spawn = childProcess.spawn;
 const jekyllConfig = config.jekyll.development;
 
-gulp.task('jekyll', (done) => {
+gulp.task('jekyll:dev', (done) => {
   browserSync.notify('Compiling Jekyll');
 
   spawn(
@@ -29,6 +29,6 @@ gulp.task('jekyll', (done) => {
   ).on('close', done);
 });
 
-gulp.task('jekyll-rebuild', ['jekyll'], () => {
+gulp.task('jekyll-rebuild:dev', ['jekyll'], () => {
   browserSync.reload();
 });

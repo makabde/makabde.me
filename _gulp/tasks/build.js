@@ -5,11 +5,11 @@ import runSequence from 'run-sequence';
  * Run all tasks needed for a build in a defined order
  */
 
-gulp.task('build', (callback) => {
+gulp.task('build:dev', (callback) => {
   runSequence(
-    'delete',
-    [ 'jekyll', 'scss', 'js', 'images', 'vectors' ],
-    'base64',
+    'delete:dev',
+    [ 'jekyll:dev', 'scss:dev', 'js:dev', 'images:dev', 'vectors:dev' ],
+    'base64:dev',
     callback
   );
 });

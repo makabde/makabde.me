@@ -1,7 +1,7 @@
 import gulp   from 'gulp';
 import eslint from 'gulp-eslint';
 
-import config from '../../config';
+import config from '../config';
 
 
 /**
@@ -10,7 +10,7 @@ import config from '../../config';
 
 const linterConfig = config.lint.javascripts;
 
-gulp.task('eslint', () => {
+gulp.task('eslint:dev', () => {
   gulp.src(linterConfig.src)
     .pipe(eslint())
     .pipe(eslint.format())

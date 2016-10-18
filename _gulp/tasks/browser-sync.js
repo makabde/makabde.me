@@ -1,7 +1,7 @@
 import gulp        from 'gulp';
 import browserSync from 'browser-sync';
 
-import config      from '../../config';
+import config      from '../config';
 
 /**
  * Run the build task and start a server with BrowserSync
@@ -9,6 +9,6 @@ import config      from '../../config';
 
 const browserSyncConfig = config.browserSync.development;
 
-gulp.task('browser-sync', ['build'], () => {
+gulp.task('browser-sync:dev', ['build:dev'], () => {
   browserSync(browserSyncConfig);
 });

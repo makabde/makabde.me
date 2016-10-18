@@ -1,7 +1,7 @@
 import gulp    from 'gulp';
 import changed from 'gulp-changed';
 
-import config  from '../../config';
+import config  from '../config';
 
 /**
  * Copy images to build folder if not changed
@@ -9,7 +9,7 @@ import config  from '../../config';
 
 const imagesConfig = config.images;
 
-gulp.task('images', () => {
+gulp.task('images:dev', () => {
   gulp.src(imagesConfig.src)
     // Ignore unchanged files
     .pipe(changed(imagesConfig.dest))

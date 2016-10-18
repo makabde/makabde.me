@@ -2,7 +2,7 @@ import gulp    from 'gulp';
 import changed from 'gulp-changed';
 import svgmin  from 'gulp-svgmin';
 
-import config  from '../../config';
+import config  from '../config';
 
 /**
  * Creates a SVG sprites and fallback PNGs
@@ -14,7 +14,7 @@ import config  from '../../config';
 
 const vectorsConfig = config.vectors;
 
-gulp.task('vectors', () => {
+gulp.task('vectors:dev', () => {
   gulp.src(vectorsConfig.src)
     // Ignore unchanged files
     .pipe(changed(vectorsConfig.dest))
