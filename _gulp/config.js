@@ -4,7 +4,7 @@ const paths = {
   /* Sources */
   src: 'src',
   srcImages: 'src/_images',
-  srcVectors: 'src/_vectors',
+  srcVectors: 'src/_svg',
   srcJavascripts: 'src/_js',
   srcStylesheets: 'src/_scss',
   /* Build */
@@ -13,6 +13,7 @@ const paths = {
   buildDevelopment: 'build/development',
   buildDevelopmentAssets: 'build/assets',
   buildDevelopmentImages: 'build/assets/images',
+  buildDevelopmentVectors: 'build/assets/vectors',
   buildDevelopmentJavascripts: 'build/assets/javascripts',
   buildDevelopmentStylesheets: 'build/assets/stylesheets',
   // Production
@@ -122,7 +123,8 @@ export default {
     dest: paths.buildDevelopmentImages
   },
   vectors: {
-
+    src: `${paths.srcVectors}/**/*`,
+    dest: paths.buildDevelopmentVectors
   },
   base64: {
     src: `${paths.buildDevelopmentStylesheets}/**/*.css`,
