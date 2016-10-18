@@ -9,9 +9,9 @@ import config from '../../config';
 const watchConfig = config.watch;
 
 gulp.task('watch', ['browser-sync'], () => {
-  gulp.watch(watchConfig.jekyll, ['jekyll-rebuild']);
+  gulp.watch(watchConfig.jekyll,       ['jekyll-rebuild']);
   gulp.watch(watchConfig.stylesheets,  ['scss']);
   gulp.watch(watchConfig.javascripts,  ['js']);
   gulp.watch(watchConfig.images,       ['images']);
-  // gulp.watch(config.vectors, ['vectors']);
+  gulp.watch(watchConfig.vectors,      ['vectors']);
 });
