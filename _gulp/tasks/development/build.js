@@ -6,13 +6,9 @@ import runSequence from 'run-sequence';
  */
 
 gulp.task('build', (callback) => {
-  runSequence('delete',
-    [
-      'jekyll',
-      'scss',
-      'js',
-      'images'
-    ],
+  runSequence(
+    'delete',
+    [ 'jekyll', 'scss', 'js', 'images', 'vectors' ],
     'base64',
     callback
   );
