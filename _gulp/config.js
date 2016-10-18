@@ -48,7 +48,16 @@ export default {
     }
   },
   delete: {
-    src: [ `${paths.buildDevelopmentAssets}/**` ]
+    src: [
+      paths.buildDevelopmentImages,
+      paths.buildDevelopmentJavascripts,
+      paths.buildDevelopmentStylesheets,
+      paths.buildDevelopmentVectors,
+      `!${paths.buildDevelopmentAssets}`
+    ],
+    options: {
+      force: true
+    }
   },
   jekyll: {
     development: {
