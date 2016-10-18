@@ -1,6 +1,5 @@
-'use strict';
-
 import gulp   from 'gulp';
+import util   from 'gulp-util';
 import del    from 'del';
 
 import config from '../../config';

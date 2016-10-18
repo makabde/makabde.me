@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp    from 'gulp';
 import changed from 'gulp-changed';
 

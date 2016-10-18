@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp         from 'gulp';
 import browserSync  from 'browser-sync';
 import childProcess from 'child_process';

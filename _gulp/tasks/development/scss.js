@@ -1,5 +1,3 @@
-'use strict';
-
 import gulp         from 'gulp';
 import postcss      from 'gulp-postcss';
 import sass         from 'gulp-sass';
