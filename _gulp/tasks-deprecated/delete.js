@@ -10,7 +10,7 @@ import config from '../config';
 
 const delConfig = config.delete;
 
-gulp.task('delete:dev', () => {
+gulp.task('delete', () => {
   del(delConfig.src, delConfig.options).then(paths => {
     util.log('Deleted files and folders:\n', paths.join('\n'));
   });

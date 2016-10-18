@@ -7,9 +7,17 @@ import runSequence from 'run-sequence';
 
 gulp.task('build:dev', (callback) => {
   runSequence(
-    'delete:dev',
+    'delete',
     [ 'jekyll:dev', 'scss:dev', 'js:dev', 'images:dev', 'vectors:dev' ],
     'base64:dev',
+    callback
+  );
+});
+
+gulp.task('build:prod', (callback) => {
+  runSequence(
+    'delete',
+    'jekyll:prod',
     callback
   );
 });
