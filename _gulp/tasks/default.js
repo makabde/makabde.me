@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import gulpChanged from 'gulp-changed';
 import gulpIf from 'gulp-if';
 import gulpPostcss from 'gulp-postcss';
 import gulpSass from 'gulp-sass';
@@ -143,4 +144,8 @@ gulp.task('stylesheets', () => {
 
 /**
  * Javascripts tasks
+ */
+
+/**
+ * Images tasks
  */
