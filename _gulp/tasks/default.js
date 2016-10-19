@@ -1,7 +1,14 @@
 import gulp from 'gulp';
+import gulpIf from 'gulp-if';
+import gulpPostcss from 'gulp-postcss';
+import gulpSass from 'gulp-sass';
+import gulpSourcemaps from 'gulp-sourcemaps';
+import gulpUtil from 'gulp-util';
 
+import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
 import cp from 'child_process';
+import cssnano from 'cssnano';
 import del from 'del';
 import minimist from 'minimist';
 import runSequence from 'run-sequence';
@@ -34,6 +41,7 @@ gulp.task('watch', ['browserSync:dev'], callback => {
   let watchConfig = config.watch;
 
   gulp.watch(watchConfig.jekyll, ['jekyll:rebuild']);
+  gulp.watch(watchConfig.stylesheets), ['stylesheets'];
 });
 
 /**
@@ -99,8 +107,36 @@ gulp.task('jekyll', done => {
       `--source=${config.jekyll.src}`,
       `--destination=${_config.dest}`,
       `--config=${_config.config}`
-
     ],
     { stdio: 'inherit' }
   ).on('close', done);
+});
+
+/**
+ * Stylesheets tasks
+ */
+
+gulp.task('stylesheets', () => {
+  browserSync.notify('Compiling stylesheets');
+
+  let _config;
+  if (options.env === 'production') {
+    _config = config.stylesheets.prod;
+  } else {
+    _config = config.stylesheets.dev;
+  }
+
+  let _processors = [
+    autoprefixer(config.stylesheets.processors.autoprefixer)
+  ];
+
+  gulp.src(config.stylesheets.src)
+    .pipe(gulpSourcemaps.init())
+    .pipe(gulpSass({
+      includePaths: config.stylesheets.includePaths
+    }).on('error', gulpSass.logError))
+    .pipe(gulpPostcss(_processors))
+    .pipe(gulpIf(options.env === 'production', cssnano()))
+    .pipe(gulpSourcemaps.write('.'))
+    .pipe(gulp.dest(_config.dest));
 });

@@ -13,3 +13,5 @@ or
 ```
     npm install && bower install
 ```
+
+Make sure NODE_ENV is properly set to `development` in dev or run it with `gulp --env development`

@@ -1,5 +1,6 @@
 const paths = {
   src: 'src',
+  stylesheets: 'src/_scss',
   build: {
     base: 'build',
     dev: {
@@ -53,6 +54,8 @@ export default {
       `${paths.src}/_posts/*.{markdown,md}`,
       `${paths.src}/**/*.{html,markdown,md,yml,json,txt,xml}`,
       `${paths.src}/*`,
+    ],
+    stylesheets: `${paths.stylesheets}/_scss/**/*.scss`
   },
   jekyll: {
     src: paths.src,
@@ -64,4 +67,31 @@ export default {
       dest: paths.build.prod.base,
       config: '_config.yml,_config.build.yml'
     }
+  },
+  stylesheets: {
+    src: `${paths.stylesheets}/**/*.scss`,
+    dev: {
+      dest: `${paths.build.dev.assets}/stylesheets`
+    },
+    prod: {
+      dest: `${paths.build.prod.assets}/stylesheets`
+    },
+    includePaths: [
+      require('bourbon').includePaths,
+      require('bourbon-neat').includePaths
+    ],
+    processors: {
+      autoprefixer: {
+        browsers: [
+          'last 2 versions',
+          'safari 5',
+          'ie 9',
+          'opera 12.1',
+          'ios 7',
+          'android 4'
+        ],
+        cascade: true
+      }
+    }
+  },
 };

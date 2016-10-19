@@ -5,14 +5,29 @@
     "jquery"
   ],
   "plugins": {
-  "complete_strings": {},
-  "node": {},
-  "lint": {},
-  "requirejs": {},
-  "modules": {},
-  "es_modules": {},
-  "doc_comment": {
-    "fullDocs": true
-   }
+    "complete_strings": {
+      "maxLength": 15
+    },
+    "node": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "lint": {},
+    "requirejs": {
+      "baseURL": "",
+      "paths": "",
+      "override": ""
+    },
+    "modules": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "es_modules": {},
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": false
+    }
   }
 }
