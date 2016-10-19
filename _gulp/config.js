@@ -2,6 +2,7 @@ const paths = {
   src: 'src',
   stylesheets: 'src/_scss',
   images: 'src/_images',
+  vectors: 'src/_svg',
   build: {
     base: 'build',
     dev: {
@@ -57,7 +58,8 @@ export default {
       `${paths.src}/*`,
     ],
     stylesheets: `${paths.stylesheets}/_scss/**/*.scss`,
-    images: `${paths.images}/**/*`
+    images: `${paths.images}/**/*`,
+    vectors: `${paths.vectors}/**/*.svg`
   },
   jekyll: {
     src: paths.src,
@@ -110,5 +112,9 @@ export default {
       maxImageSize: 20 * 1024,
       debug: false
     }
+  },
+  vectors: {
+    src: `${paths.vectors}/**/*.svg`,
+    dest: `${paths.build.dev.assets}/images`
   }
 };

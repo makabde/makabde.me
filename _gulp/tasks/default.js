@@ -5,6 +5,7 @@ import gulpIf from 'gulp-if';
 import gulpPostcss from 'gulp-postcss';
 import gulpSass from 'gulp-sass';
 import gulpSourcemaps from 'gulp-sourcemaps';
+import gulpSvgmin from 'gulp-svgmin';
 import gulpUtil from 'gulp-util';
 
 import autoprefixer from 'autoprefixer';
@@ -45,6 +46,7 @@ gulp.task('watch', ['browserSync:dev'], callback => {
   gulp.watch(watchConfig.jekyll, ['jekyll:rebuild']);
   gulp.watch(watchConfig.stylesheets), ['stylesheets'];
   gulp.watch(watchConfig.images), ['images'];
+  gulp.watch(watchConfig.vectors), ['vectors'];
 });
 
 /**
@@ -64,7 +66,7 @@ gulp.task('browserSync:prod', ['build:prod'], () => {
 gulp.task('build:dev', callback => {
   runSequence(
     'delete',
-    [ 'jekyll', 'stylesheets' , 'images'],
+    [ 'jekyll', 'stylesheets' , 'images', 'vectors' ],
     'base64',
     callback
   );
@@ -172,5 +174,18 @@ gulp.task('base64', ['stylesheets'], () => {
 
   gulp.src(_config.src)
     .pipe(gulpBase64(_config.options))
+    .pipe(gulp.dest(_config.dest));
+});
+
+/**
+ * Vectors task
+ */
+
+gulp.task('vectors', () => {
+  let _config = config.vectors;
+
+  gulp.src(_config.src)
+    .pipe(gulpChanged(_config.dest))
+    .pipe(gulpSvgmin())
     .pipe(gulp.dest(_config.dest));
 });
