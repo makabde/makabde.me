@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import gulpBase64 from 'gulp-base64';
 import gulpChanged from 'gulp-changed';
 import gulpIf from 'gulp-if';
 import gulpPostcss from 'gulp-postcss';
@@ -64,6 +65,7 @@ gulp.task('build:dev', callback => {
   runSequence(
     'delete',
     [ 'jekyll', 'stylesheets' , 'images'],
+    'base64',
     callback
   );
 });
@@ -157,4 +159,18 @@ gulp.task('images', () => {
   gulp.src(config.images.src)
     .pipe(gulpChanged(config.images.dest))
     .pipe(gulp.dest(config.images.dest));
+});
+
+/**
+ * Base64 task
+ *
+ * Replace urls in CSS files with base64 encoded data
+ */
+
+gulp.task('base64', ['stylesheets'], () => {
+  let _config = config.base64;
+
+  gulp.src(_config.src)
+    .pipe(gulpBase64(_config.options))
+    .pipe(gulp.dest(_config.dest));
 });

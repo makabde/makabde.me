@@ -100,5 +100,15 @@ export default {
   images: {
     src: `${paths.images}/**/*`,
     dest: `${paths.build.dev.assets}/images`
+  },
+  base64: {
+    src: `${paths.build.dev.assets}/images/**/*.css`,
+    dest: `${paths.build.dev.assets}/images`,
+    options: {
+      baseDir: paths.build.base,
+      extensions: ['png'],
+      maxImageSize: 20 * 1024,
+      debug: false
+    }
   }
 };
