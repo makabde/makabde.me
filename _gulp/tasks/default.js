@@ -140,3 +140,7 @@ gulp.task('stylesheets', () => {
     .pipe(gulpSourcemaps.write('.'))
     .pipe(gulp.dest(_config.dest));
 });
+
+/**
+ * Javascripts tasks
+ */
