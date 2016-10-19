@@ -2,11 +2,11 @@ const paths = {
   src: 'src',
   build: {
     base: 'build',
-    development: {
+    dev: {
       base: 'build/development',
       assets: 'build/assets'
     },
-    production: {
+    prod: {
       base: 'build/production',
       assets: 'build/production/assets'
     }
@@ -18,7 +18,7 @@ export default {
     dev: {
       server: {
         baseDir: [
-          paths.build.development.base,
+          paths.build.dev.base,
           paths.build.base,
           paths.src
         ]
@@ -26,19 +26,45 @@ export default {
       open: false,
       port: 9999,
       files: [
-        `${paths.build.development.assets}/stylesheets/*.css`,
-        `${paths.build.development.assets}/javascripts/*.js`,
-        `${paths.build.development.assets}/images/**/*`
+        `${paths.build.dev.assets}/stylesheets/*.css`,
+        `${paths.build.dev.assets}/javascripts/*.js`,
+        `${paths.build.dev.assets}/images/**/*`
       ]
     },
     prod: {
       server: {
-        baseDir: [ paths.build.production ]
+        baseDir: [ paths.build.prod ]
       },
       port: 9998
     }
   },
   del: {
-    src: paths.build.development.assets
+    src: paths.build.dev.assets
+  },
+  watch: {
+    jekyll: [
+      '_config.yml',
+      '_config.build.yml',
+      `${paths.src}/_data/**/*.{json,yml,csv}`,
+      `${paths.src}/_includes/**/*.{html,xml}`,
+      `${paths.src}/_layouts/*.html`,
+      `${paths.src}/_locales/*.yml`,
+      `${paths.src}/_plugins/*.rb`,
+      `${paths.src}/_posts/*.{markdown,md}`,
+      `${paths.src}/**/*.{html,markdown,md,yml,json,txt,xml}`,
+      `${paths.src}/*`,
+    ]
+  },
+  jekyll: {
+    dev: {
+      src: paths.src,
+      dest: paths.build.dev.base,
+      config: '_config.yml'
+    },
+    prod: {
+      src: paths.src,
+      dest: paths.build.prod.base,
+      config: '_config.yml,_config.build.yml'
+    }
   }
 };
