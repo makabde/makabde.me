@@ -43,6 +43,7 @@ gulp.task('watch', ['browserSync:dev'], callback => {
 
   gulp.watch(watchConfig.jekyll, ['jekyll:rebuild']);
   gulp.watch(watchConfig.stylesheets), ['stylesheets'];
+  gulp.watch(watchConfig.images), ['images'];
 });
 
 /**
@@ -62,7 +63,7 @@ gulp.task('browserSync:prod', ['build:prod'], () => {
 gulp.task('build:dev', callback => {
   runSequence(
     'delete',
-    [ 'jekyll', 'stylesheets' ],
+    [ 'jekyll', 'stylesheets' , 'images'],
     callback
   );
 });
@@ -148,4 +149,12 @@ gulp.task('stylesheets', () => {
 
 /**
  * Images tasks
+ *
+ * Copy images to build folder if not changed
  */
+
+gulp.task('images', () => {
+  gulp.src(config.images.src)
+    .pipe(gulpChanged(config.images.dest))
+    .pipe(gulp.dest(config.images.dest));
+});

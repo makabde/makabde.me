@@ -1,6 +1,7 @@
 const paths = {
   src: 'src',
   stylesheets: 'src/_scss',
+  images: 'src/_images',
   build: {
     base: 'build',
     dev: {
@@ -55,7 +56,8 @@ export default {
       `${paths.src}/**/*.{html,markdown,md,yml,json,txt,xml}`,
       `${paths.src}/*`,
     ],
-    stylesheets: `${paths.stylesheets}/_scss/**/*.scss`
+    stylesheets: `${paths.stylesheets}/_scss/**/*.scss`,
+    images: `${paths.images}/**/*`
   },
   jekyll: {
     src: paths.src,
@@ -94,4 +96,9 @@ export default {
       }
     }
   },
+  javascripts: {},
+  images: {
+    src: `${paths.images}/**/*`,
+    dest: `${paths.build.dev.assets}/images`
+  }
 };
