@@ -132,13 +132,13 @@ gulp.task('stylesheets', () => {
   ];
 
   gulp.src(config.stylesheets.src)
-    .pipe(gulpSourcemaps.init())
+    .pipe(gulpIf(options.env === 'development', gulpSourcemaps.init()))
     .pipe(gulpSass({
       includePaths: config.stylesheets.includePaths
     }).on('error', gulpSass.logError))
     .pipe(gulpPostcss(_processors))
     .pipe(gulpIf(options.env === 'production', cssnano()))
-    .pipe(gulpSourcemaps.write('.'))
+    .pipe(gulpIf(options.env === 'development', gulpSourcemaps.write('.')))
     .pipe(gulp.dest(_config.dest));
 });
 
