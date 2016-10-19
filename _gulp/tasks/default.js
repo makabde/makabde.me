@@ -1,6 +1,4 @@
 import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import gulputil from 'gulp-util';
 
 import browserSync from 'browser-sync';
 import cp from 'child_process';
@@ -70,7 +68,7 @@ gulp.task('delete', () => {
   let delConfig = config.del;
 
   del(delConfig.src).then(paths => {
-    gulputil.log('Deleted files and folders:\n', paths.join('\n'));
+    gulpUtil.log('Deleted files and folders:\n', paths.join('\n'));
   });
 });
 
