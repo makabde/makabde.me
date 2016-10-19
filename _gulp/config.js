@@ -53,18 +53,15 @@ export default {
       `${paths.src}/_posts/*.{markdown,md}`,
       `${paths.src}/**/*.{html,markdown,md,yml,json,txt,xml}`,
       `${paths.src}/*`,
-    ]
   },
   jekyll: {
+    src: paths.src,
     dev: {
-      src: paths.src,
       dest: paths.build.dev.base,
       config: '_config.yml'
     },
     prod: {
-      src: paths.src,
       dest: paths.build.prod.base,
       config: '_config.yml,_config.build.yml'
     }
-  }
 };

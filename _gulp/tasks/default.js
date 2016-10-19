@@ -55,7 +55,7 @@ gulp.task('browserSync:prod', ['build:prod'], () => {
 gulp.task('build:dev', callback => {
   runSequence(
     'delete',
-    [ 'jekyll' ],
+    [ 'jekyll', 'stylesheets' ],
     callback
   );
 });
@@ -77,14 +77,19 @@ gulp.task('delete', () => {
 /**
  * Jekyll tasks
  */
-gulp.task('jekyll:rebuild', ['jekyll:dev'], () => {
+gulp.task('jekyll:rebuild', ['jekyll'], () => {
   browserSync.reload();
 });
 
-gulp.task('jekyll:dev', done => {
+gulp.task('jekyll', done => {
   browserSync.notify('Compiling Jekyll');
 
-  let jekyllConfig = config.jekyll.dev;
+  let _config;
+  if (options.env === 'production') {
+    _config = config.jekyll.prod;
+  } else {
+    _config = config.jekyll.dev;
+  }
 
   cp.spawn(
     'bundle',
@@ -93,9 +98,10 @@ gulp.task('jekyll:dev', done => {
       'jekyll',
       'build',
       '-q',
-      `--source=${jekyllConfig}.src`,
-      `--destination=${jekyllConfig}.dest`,
-      `--config=${jekyllConfig}.config`
+      `--source=${config.jekyll.src}`,
+      `--destination=${_config.dest}`,
+      `--config=${_config.config}`
+
     ],
     { stdio: 'inherit' }
   ).on('close', done);
