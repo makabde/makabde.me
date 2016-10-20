@@ -38,6 +38,7 @@ export default {
       server: {
         baseDir: [ paths.build.prod.base ]
       },
+      open: false,
       port: 9998
     }
   },
