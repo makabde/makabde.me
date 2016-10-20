@@ -104,8 +104,8 @@ export default {
     dest: `${paths.build.dev.assets}/images`
   },
   base64: {
-    src: `${paths.build.dev.assets}/images/**/*.css`,
-    dest: `${paths.build.dev.assets}/images`,
+    src: `${paths.build.dev.assets}/stylesheets/**/*.css`,
+    dest: `${paths.build.dev.assets}/stylesheets`,
     options: {
       baseDir: paths.build.base,
       extensions: ['png'],
