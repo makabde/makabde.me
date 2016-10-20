@@ -389,17 +389,34 @@ gulp.task('browserSync:dev', gulp.series('build:dev', done => {
  * Watch
  */
 
-gulp.task('watch', gulp.series('browserSync:dev', done => {
-  done();
-}));
+gulp.task('watch:jekyll', () => {
+  gulp.watch(config.watch.jekyll, gulp.series('jekyll', 'browserSync:reload'));
+});
+
+gulp.task('watch:stylesheets', () => {
+  gulp.watch(config.watch.stylesheets, gulp.series('stylesheets'));
+});
+
+gulp.task('watch:images', () => {
+  gulp.watch(config.watch.images, gulp.series('images'));
+});
+
+gulp.task('watch:vectors', () => {
+  gulp.watch(config.watch.vectors, gulp.series('vectors'));
+});
+
+gulp.task('watch', gulp.parallel(
+  'watch:jekyll',
+  'watch:stylesheets',
+  'watch:images',
+  'watch:vectors'
+));
 
 /**
  * Default task
  */
 
-gulp.task('default', gulp.series('watch', done => {
-  done();
-}));
+gulp.task('default', gulp.series('browserSync:dev', 'watch'));
 
 /**
  * Publish task
