@@ -379,11 +379,11 @@ gulp.task('browserSync:dev', gulp.series('build:dev', done => {
   _browserSync.init(config.browserSync.dev, done());
 }));
 
-gulp.task('browserSync:prod', gulp.series('build:prod', done => {
-  let _browserSync = browserSync.create('prod');
-
-  _browserSync.init(config.browserSync.prod, done());
-}));
+// gulp.task('browserSync:prod', gulp.series('build:prod', done => {
+//   let _browserSync = browserSync.create('prod');
+//
+//   _browserSync.init(config.browserSync.prod, done());
+// }));
 
 /**
  * Watch
@@ -405,6 +405,6 @@ gulp.task('default', gulp.series('watch', done => {
  * Publish task
  */
 
-gulp.task('publish', gulp.series('browserSync:prod', done => {
+gulp.task('publish', gulp.series('build:prod', done => {
   done();
 }));
