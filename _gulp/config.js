@@ -130,5 +130,21 @@ export default {
       src: `${paths.build.dev.assets}/images/**/*.svg`,
       dest: `${paths.build.prod.assets}/images`,
     }
+  },
+  revision: {
+    src: {
+      assets: [
+        `${paths.build.prod.assets}/stylesheets/*.css`,
+        `${paths.build.prod.assets}/images/**/*`
+      ],
+      base: paths.build.prod.base
+    },
+    dest: {
+      assets: paths.build.prod.base
+    },
+    manifest: {
+      name: 'manifest.json',
+      path: paths.build.prod.assets
+    }
   }
 };

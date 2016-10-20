@@ -4,6 +4,7 @@ import gulpChanged from 'gulp-changed';
 import gulpIf from 'gulp-if';
 import gulpImagemin from 'gulp-imagemin';
 import gulpPostcss from 'gulp-postcss';
+import gulpRev from 'gulp-rev';
 import gulpSass from 'gulp-sass';
 import gulpSize from 'gulp-size';
 import gulpSourcemaps from 'gulp-sourcemaps';
@@ -222,6 +223,31 @@ gulp.task('optimise:vectors', done => {
 });
 
 /**
+ * Rev
+ *
+ * Revision all assets files and write a manifest file.
+ */
+
+gulp.task('revision', done => {
+  let _config = config.revision;
+
+  let _stream = gulp.src(_config.src.assets, { base: _config.src.base })
+    .pipe(gulp.dest(_config.dest.assets))
+    .pipe(gulpRev())
+    .pipe(gulp.dest(_config.dest.assets))
+    .pipe(gulpRev.manifest({ path: _config.manifest.name }))
+    .pipe(gulp.dest(_config.manifest.path));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
+/**
  * Delete
  */
 
@@ -267,6 +293,7 @@ gulp.task('build:prod', gulp.series(
   'build:dev:assets',
   'base64',
   'build:prod:optimise',
+  'revision',
   done => {
     done();
   }
