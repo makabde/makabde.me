@@ -74,12 +74,7 @@ export default {
   },
   stylesheets: {
     src: `${paths.stylesheets}/**/*.scss`,
-    dev: {
-      dest: `${paths.build.dev.assets}/stylesheets`
-    },
-    prod: {
-      dest: `${paths.build.prod.assets}/stylesheets`
-    },
+    dest: `${paths.build.dev.assets}/stylesheets`,
     includePaths: [
       require('bourbon').includePaths,
       require('bourbon-neat').includePaths
