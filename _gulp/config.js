@@ -143,8 +143,19 @@ export default {
       assets: paths.build.prod.base
     },
     manifest: {
-      name: 'manifest.json',
-      path: paths.build.prod.assets
+      options: {
+        path: 'manifest.json',
+        merge: true
+      },
+      path: paths.build.prod.assets,
+    },
+    collect: {
+      src: [
+        `${paths.build.prod.assets}/manifest.json`,
+        `${paths.build.base}/**/*.{html,xml,txt,json,css,js}`,
+        `!${paths.build.base}/feed.xml`
+      ],
+      dest: paths.build.base
     }
   }
 };

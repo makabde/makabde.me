@@ -5,6 +5,8 @@ import gulpIf from 'gulp-if';
 import gulpImagemin from 'gulp-imagemin';
 import gulpPostcss from 'gulp-postcss';
 import gulpRev from 'gulp-rev';
+import gulpRevCollector from 'gulp-rev-collector';
+import gulpRevDelete from 'gulp-rev-delete-original';
 import gulpSass from 'gulp-sass';
 import gulpSize from 'gulp-size';
 import gulpSourcemaps from 'gulp-sourcemaps';
@@ -225,18 +227,36 @@ gulp.task('optimise:vectors', done => {
 /**
  * Rev
  *
- * Revision all assets files and write a manifest file.
+ * 1. Revision all assets files and write a manifest file.
+ * 2. Replace all links to assets in files from a manifest file.
  */
 
-gulp.task('revision', done => {
+gulp.task('rev', done => {
   let _config = config.revision;
 
   let _stream = gulp.src(_config.src.assets, { base: _config.src.base })
     .pipe(gulp.dest(_config.dest.assets))
     .pipe(gulpRev())
+    .pipe(gulpRevDelete())
     .pipe(gulp.dest(_config.dest.assets))
-    .pipe(gulpRev.manifest({ path: _config.manifest.name }))
+    .pipe(gulpRev.manifest(_config.manifest.options))
     .pipe(gulp.dest(_config.manifest.path));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
+gulp.task('rev:collector', done => {
+  let _config = config.revision.collect;
+
+  let _stream = gulp.src(_config.src)
+    .pipe(gulpRevCollector())
+    .pipe(gulp.dest(_config.dest));
 
   _stream.on('end', () => {
     done();
@@ -293,7 +313,8 @@ gulp.task('build:prod', gulp.series(
   'build:dev:assets',
   'base64',
   'build:prod:optimise',
-  'revision',
+  'rev',
+  'rev:collector',
   done => {
     done();
   }

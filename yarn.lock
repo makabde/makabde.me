@@ -2187,6 +2187,21 @@ gulp-rev:
     through2 "^2.0.0"
     vinyl-file "^1.1.0"
 
+gulp-rev-collector:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/gulp-rev-collector/-/gulp-rev-collector-1.0.5.tgz#15f5cd09a770c9c07bae55ce716029e3c4f1343f"
+  dependencies:
+    gulp-util "^3.0.0"
+    through2 ">=0.5.1"
+    underscore "^1.6.0"
+
+gulp-rev-delete-original:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/gulp-rev-delete-original/-/gulp-rev-delete-original-0.2.2.tgz#19d431f33563608719ea3e70574b3a251ee35174"
+  dependencies:
+    rimraf "^2.3.4"
+    through2 "^0.6.5"
+
 gulp-sass@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/gulp-sass/-/gulp-sass-2.3.2.tgz#82b7ab90fe902cdc34c04f180d92f2c34902dd52"
@@ -4246,7 +4261,7 @@ rev-path@^1.0.0:
   dependencies:
     modify-filename "^1.0.0"
 
-rimraf@^2.2.6, rimraf@^2.2.8, rimraf@~2.5.0, rimraf@~2.5.1, rimraf@2:
+rimraf@^2.2.6, rimraf@^2.2.8, rimraf@^2.3.4, rimraf@~2.5.0, rimraf@~2.5.1, rimraf@2:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
@@ -4725,14 +4740,14 @@ through2-filter@^2.0.0:
     through2 "~2.0.0"
     xtend "~4.0.0"
 
-through2@^0.6.0, through2@^0.6.1:
+through2@^0.6.0, through2@^0.6.1, through2@^0.6.5:
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-0.6.5.tgz#41ab9c67b29d57209071410e1d7a7a968cd3ad48"
   dependencies:
     readable-stream ">=1.0.33-1 <1.1.0-0"
     xtend ">=4.0.0 <4.1.0-0"
 
-through2@^2.0.0, through2@^2.0.1, through2@~2.0.0, through2@2.X:
+through2@^2.0.0, through2@^2.0.1, through2@>=0.5.1, through2@~2.0.0, through2@2.X:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.1.tgz#384e75314d49f32de12eebb8136b8eb6b5d59da9"
   dependencies:
@@ -4823,6 +4838,10 @@ ultron@1.0.x:
 unc-path-regex@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
+
+underscore@^1.6.0:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
 
 underscore@1.7.x:
   version "1.7.0"
