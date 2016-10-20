@@ -13,7 +13,6 @@
       "load": "",
       "modules": ""
     },
-    "lint": {},
     "requirejs": {
       "baseURL": "",
       "paths": "",
