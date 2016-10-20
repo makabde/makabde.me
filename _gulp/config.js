@@ -116,5 +116,15 @@ export default {
   vectors: {
     src: `${paths.vectors}/**/*.svg`,
     dest: `${paths.build.dev.assets}/images`
+  },
+  optimise: {
+    css: {
+      src: `${paths.build.dev.assets}/stylesheets/**/*.css`,
+      dest: `${paths.build.prod.assets}/stylesheets`
+    },
+    svg: {
+      src: `${paths.build.dev.assets}/images/**/*.svg`,
+      dest: `${paths.build.prod.assets}/images`,
+    }
   }
 };
