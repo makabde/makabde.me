@@ -57,7 +57,7 @@ export default {
       `${paths.src}/**/*.{html,markdown,md,yml,json,txt,xml}`,
       `${paths.src}/*`,
     ],
-    stylesheets: `${paths.stylesheets}/_scss/**/*.scss`,
+    stylesheets: `${paths.stylesheets}/**/*.scss`,
     images: `${paths.images}/**/*`,
     vectors: `${paths.vectors}/**/*.svg`
   },
