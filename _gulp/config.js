@@ -157,5 +157,17 @@ export default {
       ],
       dest: paths.build.base
     }
+  },
+  compress: {
+    gzip: {
+      src: `${paths.build.prod.base}/**/*.{css,html,json,js,xml}`,
+      dest: paths.build.prod.base,
+      options: {}
+    },
+    webp: {
+      src: `${paths.build.prod.assets}/images/**/*.{jpg,jpeg,png}`,
+      dest: `${paths.build.prod.assets}/images`,
+      options: {}
+    }
   }
 };

@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import gulpBase64 from 'gulp-base64';
 import gulpChanged from 'gulp-changed';
+import gulpGzip from 'gulp-gzip';
 import gulpIf from 'gulp-if';
 import gulpImagemin from 'gulp-imagemin';
 import gulpPostcss from 'gulp-postcss';
@@ -11,6 +12,7 @@ import gulpSass from 'gulp-sass';
 import gulpSize from 'gulp-size';
 import gulpSourcemaps from 'gulp-sourcemaps';
 import gulpSvgmin from 'gulp-svgmin';
+import gulpWebp from 'gulp-webp';
 
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
@@ -20,7 +22,6 @@ import del from 'del';
 import minimist from 'minimist';
 
 import config from '../config';
-
 
 /**
  * Environment variables
@@ -268,6 +269,45 @@ gulp.task('rev:collector', done => {
 });
 
 /**
+ * Compress
+ *
+ * 1. Gzip text files
+ * 2. Convert images to WebP
+ */
+
+gulp.task('compress:gzip', done => {
+  let _config = config.compress.gzip;
+
+  let _stream = gulp.src(_config.src)
+    .pipe(gulpGzip(_config.options))
+    .pipe(gulp.dest(_config.dest));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
+gulp.task('compress:webp', done => {
+  let _config = config.compress.webp;
+
+  let _stream = gulp.src(_config.src)
+    .pipe(gulpWebp(_config.options))
+    .pipe(gulp.dest(_config.dest));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
+/**
  * Delete
  */
 
@@ -298,6 +338,14 @@ gulp.task('build:dev', gulp.series(
   }
 ));
 
+gulp.task('build:prod:compress', gulp.parallel(
+  'compress:gzip',
+  'compress:webp',
+  done => {
+    done();
+  }
+));
+
 gulp.task('build:prod:optimise', gulp.parallel(
   'optimise:css',
   'optimise:images',
@@ -315,6 +363,7 @@ gulp.task('build:prod', gulp.series(
   'build:prod:optimise',
   'rev',
   'rev:collector',
+  'build:prod:compress',
   done => {
     done();
   }
