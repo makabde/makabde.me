@@ -34,6 +34,9 @@ const knownOptions = {
 
 const options = minimist(process.argv.slice(2), knownOptions);
 
+
+const _browserSync = browserSync.create('dev');
+
 /**
  * Jekyll
  *
@@ -42,7 +45,7 @@ const options = minimist(process.argv.slice(2), knownOptions);
  */
 
 gulp.task('jekyll', done => {
-  browserSync.notify('Compiling Jekyll');
+  _browserSync.notify('Compiling Jekyll');
 
   let _config;
   if (options.env === 'production') {
@@ -75,7 +78,7 @@ gulp.task('jekyll', done => {
  */
 
 gulp.task('stylesheets', done => {
-  browserSync.notify('Compiling stylesheets');
+  _browserSync.notify('Compiling stylesheets');
 
   let _config = config.stylesheets;
   let _processors = [
@@ -374,10 +377,13 @@ gulp.task('build:prod', gulp.series(
  */
 
 gulp.task('browserSync:dev', gulp.series('build:dev', done => {
-  let _browserSync = browserSync.create('dev');
-
   _browserSync.init(config.browserSync.dev, done());
 }));
+
+gulp.task('browserSync:reload', done => {
+  _browserSync.reload();
+  done();
+});
 
 // gulp.task('browserSync:prod', gulp.series('build:prod', done => {
 //   let _browserSync = browserSync.create('prod');
