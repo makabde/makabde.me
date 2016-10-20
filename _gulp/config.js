@@ -117,7 +117,16 @@ export default {
       src: `${paths.build.dev.assets}/stylesheets/**/*.css`,
       dest: `${paths.build.prod.assets}/stylesheets`
     },
-    svg: {
+    images: {
+      src: `${paths.build.dev.assets}/images/**/*.{gif,jpg,jpeg,png}`,
+      dest: `${paths.build.prod.assets}/images`,
+      options: {
+        optimizationLevel: 3,
+        progressive: true,
+        interlaced: true
+      }
+    },
+    vectors: {
       src: `${paths.build.dev.assets}/images/**/*.svg`,
       dest: `${paths.build.prod.assets}/images`,
     }

@@ -2,12 +2,16 @@ import gulp from 'gulp';
 import gulpBase64 from 'gulp-base64';
 import gulpChanged from 'gulp-changed';
 import gulpIf from 'gulp-if';
+import gulpImagemin from 'gulp-imagemin';
 import gulpPostcss from 'gulp-postcss';
 import gulpSass from 'gulp-sass';
+import gulpSize from 'gulp-size';
 import gulpSourcemaps from 'gulp-sourcemaps';
+import gulpSvgmin from 'gulp-svgmin';
 
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
+import cssnano from 'cssnano';
 import cp from 'child_process';
 import del from 'del';
 import minimist from 'minimist';
@@ -159,6 +163,65 @@ gulp.task('base64', done => {
 });
 
 /**
+ * Optimise
+ *
+ * 1. Optimise CSS
+ * 2. Optimise images
+ * 3. Optimise svg's
+ */
+gulp.task('optimise:css', done => {
+  let _config = config.optimise.css;
+  let _processors = [
+    cssnano()
+  ];
+
+  let _stream = gulp.src(_config.src)
+    .pipe(gulpPostcss(_processors))
+    .pipe(gulpSize())
+    .pipe(gulp.dest(_config.dest));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
+gulp.task('optimise:images', done => {
+  let _config = config.optimise.images;
+
+  let _stream = gulp.src(_config.src)
+    .pipe(gulpImagemin(_config.options))
+    .pipe(gulp.dest(_config.dest));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
+gulp.task('optimise:vectors', done => {
+  let _config = config.optimise.vectors;
+
+  let _stream = gulp.src(_config.src)
+    .pipe(gulpSvgmin())
+    .pipe(gulp.dest(_config.dest));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
+/**
  * Delete
  */
 
@@ -189,6 +252,26 @@ gulp.task('build:dev', gulp.series(
   }
 ));
 
+gulp.task('build:prod:optimise', gulp.parallel(
+  'optimise:css',
+  'optimise:images',
+  'optimise:vectors',
+  done => {
+    done();
+  }
+));
+
+gulp.task('build:prod', gulp.series(
+  'delete',
+  'jekyll',
+  'build:dev:assets',
+  'base64',
+  'build:prod:optimise',
+  done => {
+    done();
+  }
+));
+
 /**
  * BrowserSync
  */
@@ -197,6 +280,12 @@ gulp.task('browserSync:dev', gulp.series('build:dev', done => {
   let _browserSync = browserSync.create('dev');
 
   _browserSync.init(config.browserSync.dev, done());
+}));
+
+gulp.task('browserSync:prod', gulp.series('build:prod', done => {
+  let _browserSync = browserSync.create('prod');
+
+  _browserSync.init(config.browserSync.prod, done());
 }));
 
 /**
@@ -212,5 +301,13 @@ gulp.task('watch', gulp.series('browserSync:dev', done => {
  */
 
 gulp.task('default', gulp.series('watch', done => {
+  done();
+}));
+
+/**
+ * Publish task
+ */
+
+gulp.task('publish', gulp.series('browserSync:prod', done => {
   done();
 }));
