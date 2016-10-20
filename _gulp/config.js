@@ -22,8 +22,7 @@ export default {
       server: {
         baseDir: [
           paths.build.dev.base,
-          paths.build.base,
-          paths.src
+          paths.build.base
         ]
       },
       open: false,
