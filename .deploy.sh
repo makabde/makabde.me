@@ -27,7 +27,7 @@ git clone https://${GH_TOKEN}@github.com/makabde/makabde.github.io ../makabde.gi
 # that were deleted between releases.
 # Copy the generated site and assets to the cloned repo local copy.
 
-/bin/rm -R ../makabde.github.io/*
+/bin/rm -Rf ../makabde.github.io/*
 cp -R build/production/* ../makabde.github.io
 
 # Commit and push the site to the master branch
