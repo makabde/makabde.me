@@ -1,0 +1,8 @@
+# robotstxt.org/
+
+User-Agent: *
+Disallow:
+Allow: /
+Disallow: /assets
+
+Sitemap: http://makabde.me/sitemap.xml
