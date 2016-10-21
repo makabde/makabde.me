@@ -15,11 +15,11 @@ install:
 - npm install -g gulp
 - npm install -g bower
 - npm install
+- bower install
 before_script:
 - chmod +x ./.deploy.sh
 script: "./.deploy.sh"
 env:
   global:
-  - NODE_ENV=production
   - secure: CIkTKNCkqgiVmv+7LuPF1SoMobTpnv2FgbCW6IGZ/hsWQwjvMLfMZaWoYqv7436/GSnT6O2KgsIHxIi76ywIMw8ZoqonFdhCri6JHsWGgAZAV8nPRGxEG56+4QpjAR/bP54gK6xlduNHzI/b3Yvxw94Bo1QvvZZe1G2X18MOW3sQRgZYASMmG+2AoN+r4M8DMnEbxPCvsYoBpEpzg2aW+PjBbLtcWpTg0hn//8Ow1orfK+8x2p70alzsXzkPdz5otWyrs5Fm75wW+XwmmC3qmPvSQpf+pXi5DIl7q07iTShbJBLfDkNZ/NJcmh3+wQA0gu3iGj/+sk/OmOeTQXHQmh293+rIFOWgzu9lwXGouVYTltDXDqSITGJfWAykzhq2SsFv0jngD503jOzccUacNa2ouuxunaGqa36WYqmvmN7t+zz4o6G8z6spZf6ajQEfjcAOWXmzrT2KCScEWF2P+8SkGjRTQlW6xughzaZ6sg5gD4jLEsuZnALMoYPTsGpdcAHDI557IA04vu01AIt/qVVqWUU/k2YygJ304GDEDTcgJSWsdJ1P37QDAVEt6Voa6RSSWuTFQLvHlGx3T5DVYigQN5EXXC7Fkrq5gv5RgTMD6kDWc6RIWqt8d2lcsTSQPOzV0DwHT2hjVuU4e0PWk6s9bpe+1Av6IA24RwxlKb8=
 sudo: false
