@@ -13,7 +13,7 @@ set -e
 
 # Run the Gulp build tasks
 
-npm run build
+# npm run build
 gulp deploy --env production
 
 # Cleanup
