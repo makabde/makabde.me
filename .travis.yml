@@ -1,33 +1,24 @@
 language: node_js
-
 node_js:
-  - '6'
-
+- '6'
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - rvm install 2.3.1
-  - rvm use 2.3.1 --fuzzy
-  - export GEMDIR=$(rvm gemdir)
-  - gem install bundler
-
+- rvm install 2.3.1
+- rvm use 2.3.1 --fuzzy
+- export GEMDIR=$(rvm gemdir)
+- gem install bundler
 install:
-  - bundle install --jobs=3 --retry=3
-  - npm install -g gulp-cli
-  - npm install -g gulp
-  - npm install -g bower
-
+- bundle install --jobs=3 --retry=3
+- npm install -g gulp-cli
+- npm install -g gulp
+- npm install -g bower
 before_script:
-  - chmod +x ./.publish.sh
-
-script: "./.publish.sh"
-
+- chmod +x ./.deploy.sh
+script: "./.deploy.sh"
 env:
   global:
-    - NODE_ENV=production
-
-secure: "q0Cly3E/+kwNnd7zsp/MP1gLB20aNqLAdL+xc7hcUy4Zy3lqVSIS9DQMBHKaFowS6uHbhJsMaaPSW9653o8idlm2tXxq7noWk2pFUK+rQdZXgIqlrZK2LdUfdRAcMZaxji2PFYH0vFSTU2ZaouRGKG7lSqXWzPCU7aJg2kKopyxevh4+DPZ36+4XWcMW3OKBPYlyTs6+5y0KbxF+n05beHo5JaSCECI9dEmHfaagLYl6HTkLzCig/LpHo82R44xqTqMvg+m0eN5WQYPnnYFGxi76+USdLVpbSr86XSDqylY4+F+SUR6d2zEsbmfrgtm3YccbfSjMn9N2FeJBKt2gF8uG12ZoDDuChwII4p50RI+J5LgwKVdWa3Rk8Q1ESvNFpy/xn4K9e8nFGttwlasMiMqh+OKtsF0lkj7rogCmsuPVXl6dUjKmXKlT1/lJ3ZxMyTeAufbK0VPg5KxlSqMfP+KSFsKwVSe4N/IIi3UNyQXpoRqTzFD0qtjtc5V7A0+dsHqyxZyQFOaYfbqWUCvg8V+bdDPLu9oQmcXsFApHUp8K2PwQHFyX/IvZfxMdtQ+YE4mIZKKrmroPgR+Qx0YHVsQ3QyrO/ZQd39cj0N0P3pHNSm6BzIB0uTYcS8rSv7Kp9a0iEu+4vXpIzr5J1dtiAt1KQJHUgJEEVSYtO9TP0yA="
-
+  - NODE_ENV=production
+  - secure: fBJwoMUJZ65FJS2q00guMcKbqXhG23zv4q9r80ZcowTTpRwzQkFnbaSnq3Xu7K6pxPPb3EWNMoGfSXtxxx8ZXFYIHir0D7ntxOfa5rxExAIhcJ9gG482a9xpIdOnZfAnzkqAABLX3CwdJ18C/FvQ1Z8jxdZJQWG3iUR6+qE+m6WQ9dCSMG0vF6OQNUd1XZoZlG0mnObqSc1boKFEgsdJLFoAwBLFt2iXT3zBcv0ih9LwN+83zgAuA+OnSC/zOBkTaOj2NTtRAi7X1ogvFk4pkfGeRmL9kpNcCC+tBjlPyOHHnUP4cNGef9jkXoBB71tPuGsA5tcNyrxr0WW8U077Ishxk8ppbX8nrQBjL6OAlRPFVIPzWQFdQDZMz6DPzymLIavg2CUHe+TBD8ckh4vFDN+C8RmDz2U1EU9bRAmc42bzm/yRbtPFaaJ3EorHtxwnG5HRaz8Fm0w1oEi7kcvavSSa8q5uSspXY2ZfXBAka1WO76t+9Ymh2WYdoVN293ZVT04+yq/GlBPVmckM+4PsiSS0gOW2qPfeIaM1pRoP9bHfTtONCIEV6w1l6jwOzqx4XnV6Ft2Da5Fzghp6MoNFP1s8o+JUl85g6XiMlvBTJUJpgVDmcBXu0WzLnyNpKBkgubATkk5B03mvUJKz+u3fFKtfUj2d1mfSXa9XXbrEwDI=
 sudo: false
