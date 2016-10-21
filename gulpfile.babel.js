@@ -428,6 +428,6 @@ gulp.task('default', gulp.series('browserSync:dev', 'watch'));
  * Publish task
  */
 
-gulp.task('publish', gulp.series('build:prod', done => {
+gulp.task('deploy', gulp.series('build:prod', done => {
   done();
 }));

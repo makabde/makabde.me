@@ -1,12 +1,33 @@
-language: ruby
-rvm: 2.3.1
+language: node_js
+
+node_js:
+  - '6'
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - rvm install 2.3.1
+  - rvm use 2.3.1 --fuzzy
+  - export GEMDIR=$(rvm gemdir)
+  - gem install bundler
+
 install:
   - bundle install --jobs=3 --retry=3
   - npm install -g gulp-cli
+  - npm install -g gulp
   - npm install -g bower
-  - npm install
-  - bower install
+
 before_script:
-  - export NODE_ENV=production
-script:
-  - gulp publish
+  - chmod +x ./.publish.sh
+
+script: "./.publish.sh"
+
+env:
+  global:
+    - NODE_ENV=production
+
+secure: "q0Cly3E/+kwNnd7zsp/MP1gLB20aNqLAdL+xc7hcUy4Zy3lqVSIS9DQMBHKaFowS6uHbhJsMaaPSW9653o8idlm2tXxq7noWk2pFUK+rQdZXgIqlrZK2LdUfdRAcMZaxji2PFYH0vFSTU2ZaouRGKG7lSqXWzPCU7aJg2kKopyxevh4+DPZ36+4XWcMW3OKBPYlyTs6+5y0KbxF+n05beHo5JaSCECI9dEmHfaagLYl6HTkLzCig/LpHo82R44xqTqMvg+m0eN5WQYPnnYFGxi76+USdLVpbSr86XSDqylY4+F+SUR6d2zEsbmfrgtm3YccbfSjMn9N2FeJBKt2gF8uG12ZoDDuChwII4p50RI+J5LgwKVdWa3Rk8Q1ESvNFpy/xn4K9e8nFGttwlasMiMqh+OKtsF0lkj7rogCmsuPVXl6dUjKmXKlT1/lJ3ZxMyTeAufbK0VPg5KxlSqMfP+KSFsKwVSe4N/IIi3UNyQXpoRqTzFD0qtjtc5V7A0+dsHqyxZyQFOaYfbqWUCvg8V+bdDPLu9oQmcXsFApHUp8K2PwQHFyX/IvZfxMdtQ+YE4mIZKKrmroPgR+Qx0YHVsQ3QyrO/ZQd39cj0N0P3pHNSm6BzIB0uTYcS8rSv7Kp9a0iEu+4vXpIzr5J1dtiAt1KQJHUgJEEVSYtO9TP0yA="
+
+sudo: false
