@@ -23,11 +23,14 @@ rm -rf ../makabde.github.io
 
 git clone https://${GH_TOKEN}@github.com/makabde/makabde.github.io ../makabde.github.io
 
-# Copy the generated assets to the master branch
+# Clean up the local copy of the cloned repo, we don't want to keep old files
+# that were deleted between releases.
+# Copy the generated site and assets to the cloned repo local copy.
 
+/bin/rm -R ../makabde.github.io/*
 cp -R build/production/* ../makabde.github.io
 
-# Commit and push the geneated content to the master branch
+# Commit and push the site to the master branch
 # Since the repo was cloned in write mode with token auth - we can push there
 
 cd ../makabde.github.io
