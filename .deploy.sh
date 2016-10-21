@@ -36,4 +36,4 @@ git config user.email "hello@makabde.me"
 git config user.name "Mak Abdennabi"
 git add -A .
 git commit -a -m "Travis #$TRAVIS_BUILD_NUMBER"
-git push --quiet origin master > /dev/null 2>&1
+git push --force --quiet origin master > /dev/null 2>&1
