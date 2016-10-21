@@ -113,6 +113,13 @@ export default {
     dest: `${paths.build.dev.assets}/images`
   },
   optimise: {
+    html: {
+      src: `${paths.build.prod.base}/**/*.html`,
+      dest: paths.build.prod.base,
+      options: {
+        collapseWhitespace: true
+      }
+    },
     css: {
       src: `${paths.build.dev.assets}/stylesheets/**/*.css`,
       dest: `${paths.build.prod.assets}/stylesheets`

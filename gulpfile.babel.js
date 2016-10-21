@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import gulpBase64 from 'gulp-base64';
 import gulpChanged from 'gulp-changed';
 import gulpGzip from 'gulp-gzip';
+import gulpHtmlmin from 'gulp-htmlmin';
 import gulpIf from 'gulp-if';
 import gulpImagemin from 'gulp-imagemin';
 import gulpPostcss from 'gulp-postcss';
@@ -172,10 +173,28 @@ gulp.task('base64', done => {
 /**
  * Optimise
  *
- * 1. Optimise CSS
- * 2. Optimise images
- * 3. Optimise svg's
+ * 1. optimise HTML pages
+ * 2. Optimise CSS
+ * 3. Optimise images
+ * 4. Optimise svg's
  */
+
+gulp.task('optimise:html', done => {
+  let _config = config.optimise.html;
+
+  let _stream = gulp.src(_config.src)
+    .pipe(gulpHtmlmin(_config.options))
+    .pipe(gulp.dest(_config.dest));
+
+  _stream.on('end', () => {
+    done();
+  });
+
+  _stream.on('error', error => {
+    done(error);
+  });
+});
+
 gulp.task('optimise:css', done => {
   let _config = config.optimise.css;
   let _processors = [
@@ -350,6 +369,7 @@ gulp.task('build:prod:compress', gulp.parallel(
 ));
 
 gulp.task('build:prod:optimise', gulp.parallel(
+  'optimise:html',
   'optimise:css',
   'optimise:images',
   'optimise:vectors',
