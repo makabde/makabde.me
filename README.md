@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/makabde/makabde.me.svg?branch=master)](https://travis-ci.org/makabde/makabde.me)
+
 # makabde.me
 
 1. Install gem
@@ -13,5 +15,3 @@ or
 ```
     npm install && bower install
 ```
-
-Make sure NODE_ENV is properly set to `development` in dev or run it with `gulp --env development`
