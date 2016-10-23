@@ -1,38 +1,65 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
+# ========================================
 # Site settings
+# ========================================
 
-title: makabde.me
+title: "makabde.me"
+title_separator: "×"
+description: "Personal website of product designer slash code Mak Abdennabi"
 
-email: hello@makabde.me
+logo: assets/images/makabde-logo.png
 
-description: "Product Designer (UX / UI / Research) & Front-End Developer - Switzerland & Remote"
+url: "http://localhost:9999"
 
-baseurl: ""
+social:
+  name: "Mak Abdennabi"
+  links:
+    - https://dribbble.com/makabde
+    - https://github.com/makabde
+    - http://codepen.io/makabde/
+    - https://twitter.com/makabde
+    - https://ch.linkedin.com/in/makabde
 
-url: "http://localhost:9999" # the base hostname & protocol for your site
+twitter:
+  username: makabde
 
-twitter_username: makabde
-github_username:  makabde
 
-# Jekyll settings
+# ========================================
+# Site owner info
+# ========================================
+
+author:
+  name: "Mak Abdennabi"
+  url: "http://makabde.me/about/"
+  bio: "Product designer, coder, father, one hand amputee."
+  picture: /assets/images/makabde-picture.png
+  twitter: "makabde"
+  github: "makabde"
+
+# ========================================
+# Jekyll configuration
+# ========================================
 
 source: ./src
 destination: ./build
 
-# Build settings
-
-markdown: kramdown
-
+lsi                      : false
+future                   : true
+show_drafts              : true
+markdown                 : kramdown
 kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+  toc_levels             : 1..3
+  input                  : GFM
+  hard_wrap              : false
+  auto_ids               : true
+  entity_output          : as_char
+  smart_quotes           : lsquo,rsquo,ldquo,rdquo
+  enable_coderay         : false
+highlighter              : rouge
 
-# plugins
+# ========================================
+# Jekyll plugins
+# ========================================
+
 gems:
+  - jekyll-seo-tag
   - jekyll-sitemap
