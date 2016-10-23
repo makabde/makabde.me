@@ -257,7 +257,7 @@ gulp.task('build', gulp.series('build:dev'));
  */
 
 gulp.task('browserSync:reload', done => {
-  _browserSync.reload;
+  _browserSync.reload();
   done();
 });
 
