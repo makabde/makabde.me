@@ -18,31 +18,24 @@ const paths = {
 
 export default {
   browserSync: {
-    dev: {
-      server: {
-        baseDir: [
-          paths.build.dev.base,
-          paths.build.base
-        ]
-      },
-      open: false,
-      port: 9999,
-      files: [
-        `${paths.build.dev.assets}/stylesheets/*.css`,
-        `${paths.build.dev.assets}/javascripts/*.js`,
-        `${paths.build.dev.assets}/images/**/*`
+    server: {
+      baseDir: [
+        paths.build.dev.base,
+        paths.build.base
       ]
     },
-    prod: {
-      server: {
-        baseDir: [ paths.build.prod.base ]
-      },
-      open: false,
-      port: 9998
-    }
+    open: false,
+    port: 9999,
+    files: [
+      `${paths.build.dev.assets}/stylesheets/*.css`,
+      `${paths.build.dev.assets}/javascripts/*.js`,
+      `${paths.build.dev.assets}/images/**/*`
+    ]
   },
-  del: {
-    src: paths.build.dev.assets
+  clean: {
+    assets: paths.build.dev.assets,
+    development: paths.build.dev.base,
+    production: paths.build.prod.base
   },
   watch: {
     jekyll: [
@@ -80,7 +73,7 @@ export default {
       require('bourbon-neat').includePaths
     ],
     processors: {
-      autoprefixer: {
+      cssnext: {
         browsers: [
           'last 2 versions',
           'safari 5',
