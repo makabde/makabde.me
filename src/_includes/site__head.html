@@ -8,27 +8,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="cleartype" content="on">
 
+{% if site.language %}
+  <meta name="language" content="{{ site.language }}">
+{% endif %}
+
 {% if site.author.name %}
   <meta name="author" content="{{ site.author.name }}">
 {% endif %}
 
-<!-- site icons -->
 <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
 <meta name="application-name" content="{{ site.title }}">
-<meta name="msapplication-config" content="{{ "/browserconfig.xml" | prepend: site.url }}">
 <meta name="theme-color" content="#ffffff">
 
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/images/apple-touch-icon.png" | prepend: site.url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/images/favicon-32x32.png" | prepend: site.url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/images/favicon-16x16.png" | prepend: site.url }}">
-<link rel="manifest" href="{{ "/assets/images/manifest.json" | prepend: site.url }}">
-<link rel="mask-icon" href="{{ site.url }}/assets/images/safari-pinned-tab.svg" color="#000000">
 <link rel="shortcut icon" href="{{ "/assets/images/favicon.ico" | prepend: site.url }}">
-<!-- site icons -->
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "/sitemap.xml" | prepend: site.url }}">
 
-<!-- site styles -->
-<link href="https://fonts.googleapis.com/css?family=Lato|Merriweather:400,400i,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700" rel="stylesheet">
 <link href="{{ "/assets/stylesheets/makabde.css" | prepend: site.url }}" rel="stylesheet">
-<!-- site styles -->
+
+<!-- htmlmin:ignore -->
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- htmlmin:ignore -->

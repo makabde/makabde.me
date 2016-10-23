@@ -8,5 +8,5 @@ url: "http://makabde.me"
 # Jekyll configuration
 # ========================================
 
-future                   : true
-show_drafts              : true
+future: false
+show_drafts: false

@@ -162,8 +162,9 @@ export default {
     gzip: {
       src: [
         `${paths.build.prod.base}/**/*.{css,html,json,js,xml}`,
-        `!${paths.build.prod.base}/sitemap.xml`,
+        `!${paths.build.prod.base}/browsersync.xml`,
         `!${paths.build.prod.base}/feed.xml`,
+        `!${paths.build.prod.base}/sitemap.xml`,
         `!${paths.build.prod.assets}/manifest.json`
       ],
       dest: paths.build.prod.base,
