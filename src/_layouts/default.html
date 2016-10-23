@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% include gtm-head.html %}
-    {% include head.html %}
-  <head>
+    {% include site__gtm-body.html %}
+    {% include site__head.html %}
+  </head>
 
   <body>
-    {%include gtm-body.html %}
+    {% include site__gtm-body.html %}
 
-    {% include header.html %}
+    {% include site__header.html %}
 
     {{ content }}
 
-    {% include footer.html %}
-
-    <script src="{{ '/assets/javascripts/makabde.js' | prepend: site.baseurl }}"></script>
+    {% include site__footer.html %}
   </body>
 
 </html>

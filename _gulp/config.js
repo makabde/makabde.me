@@ -18,31 +18,24 @@ const paths = {
 
 export default {
   browserSync: {
-    dev: {
-      server: {
-        baseDir: [
-          paths.build.dev.base,
-          paths.build.base
-        ]
-      },
-      open: false,
-      port: 9999,
-      files: [
-        `${paths.build.dev.assets}/stylesheets/*.css`,
-        `${paths.build.dev.assets}/javascripts/*.js`,
-        `${paths.build.dev.assets}/images/**/*`
+    server: {
+      baseDir: [
+        paths.build.dev.base,
+        paths.build.base
       ]
     },
-    prod: {
-      server: {
-        baseDir: [ paths.build.prod.base ]
-      },
-      open: false,
-      port: 9998
-    }
+    open: false,
+    port: 9999,
+    files: [
+      `${paths.build.dev.assets}/stylesheets/*.css`,
+      `${paths.build.dev.assets}/javascripts/*.js`,
+      `${paths.build.dev.assets}/images/**/*`
+    ]
   },
-  del: {
-    src: paths.build.dev.assets
+  clean: {
+    assets: paths.build.dev.assets,
+    development: paths.build.dev.base,
+    production: paths.build.prod.base
   },
   watch: {
     jekyll: [
@@ -80,7 +73,7 @@ export default {
       require('bourbon-neat').includePaths
     ],
     processors: {
-      autoprefixer: {
+      cssnext: {
         browsers: [
           'last 2 versions',
           'safari 5',
@@ -113,6 +106,13 @@ export default {
     dest: `${paths.build.dev.assets}/images`
   },
   optimise: {
+    html: {
+      src: `${paths.build.prod.base}/**/*.html`,
+      dest: paths.build.prod.base,
+      options: {
+        collapseWhitespace: true
+      }
+    },
     css: {
       src: `${paths.build.dev.assets}/stylesheets/**/*.css`,
       dest: `${paths.build.prod.assets}/stylesheets`
@@ -160,7 +160,13 @@ export default {
   },
   compress: {
     gzip: {
-      src: `${paths.build.prod.base}/**/*.{css,html,json,js,xml}`,
+      src: [
+        `${paths.build.prod.base}/**/*.{css,html,json,js,xml}`,
+        `!${paths.build.prod.base}/browsersync.xml`,
+        `!${paths.build.prod.base}/feed.xml`,
+        `!${paths.build.prod.base}/sitemap.xml`,
+        `!${paths.build.prod.assets}/manifest.json`
+      ],
       dest: paths.build.prod.base,
       options: {}
     },
@@ -169,5 +175,8 @@ export default {
       dest: `${paths.build.prod.assets}/images`,
       options: {}
     }
+  },
+  seo: {
+    sitemap: 'http://makabde.me/sitemap.xml'
   }
 };
