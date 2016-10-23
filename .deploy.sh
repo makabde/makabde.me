@@ -42,4 +42,5 @@ git push --force --quiet origin master > /dev/null 2>&1
 
 # Run the Gulp seo related option
 
+cd ~/build/makabde/makabde.me
 gulp seo
