@@ -42,6 +42,7 @@
     "imagemin-optipng": "^5.1.0",
     "imagemin-svgo": "^5.1.0",
     "postcss-cssnext": "^2.8.0",
+    "request": "^2.75.0",
     "yargs": "^6.3.0"
   },
   "dependencies": {

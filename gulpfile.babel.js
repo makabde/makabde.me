@@ -21,6 +21,7 @@ import cp from 'child_process';
 import cssnano from 'cssnano';
 import del from 'del';
 import postcssCssnext from 'postcss-cssnext';
+import request from 'request';
 import yargs from 'yargs';
 
 /**
@@ -499,8 +500,23 @@ gulp.task('default', gulp.series('build', 'browserSync', 'watch'));
 // ========================================
 
 /**
- * `gulp deploy --production` -- Compule the site sources in production mode,
+ * `gulp deploy --production` -- Compile the site sources in production mode,
  * and run all the optimisation related tasks.
  */
 
 gulp.task('deploy', gulp.series('build', 'optimise', 'rev', 'compress'));
+
+// ========================================
+// SEO
+// ========================================
+
+/**
+ * `gulp seo` -- Inform Google and Bing search engines of a new version of the
+ * site.
+ */
+
+gulp.task('seo', done => {
+  request(`http://www.google.com/webmasters/tools/ping?sitemap=${config.seo.sitemap}`);
+  request(`http://www.bing.com/webmaster/ping.aspx?siteMap=${config.seo.sitemap}`);
+  done();
+});

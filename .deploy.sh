@@ -39,3 +39,7 @@ git config user.name "Mak Abdennabi"
 git add -A .
 git commit -a -m "Travis #$TRAVIS_BUILD_NUMBER"
 git push --force --quiet origin master > /dev/null 2>&1
+
+# Run the Gulp seo related option
+
+gulp seo

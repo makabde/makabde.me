@@ -175,5 +175,8 @@ export default {
       dest: `${paths.build.prod.assets}/images`,
       options: {}
     }
+  },
+  seo: {
+    sitemap: 'http://makabde.me/sitemap.xml'
   }
 };
