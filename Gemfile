@@ -3,8 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'jekyll'
+gem 'jekyll-sitemap'
 
 gem 'kramdown'
 gem 'rouge'
-
-gem 'scss_lint'
